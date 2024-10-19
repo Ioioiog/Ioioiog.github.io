@@ -1,7 +1,10 @@
-<!DOCTYPE html><html><head><base href="https://responsabill-casino.org/">
+<!DOCTYPE html>
+<html>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuitCasino AI - Your Personal Gambling Recovery Assistant</title>
+    <title>Reclaim Your Life: The Ultimate Guide to Conquering Gambling Addiction</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         * {
             margin: 0;
@@ -117,19 +120,30 @@
         </div>
 
         <div id="resources">
-    <h2>Quick Educational Resources for Gamblers</h2>
-    <ul>
-        <li><a href="https://www.ncpgambling.org/help-treatment/faq/" target="_blank">NCPG: Frequently Asked Questions about Gambling Addiction</a></li>
-        <li><a href="https://www.mayoclinic.org/diseases-conditions/compulsive-gambling/symptoms-causes/syc-20355178" target="_blank">Mayo Clinic: Compulsive Gambling Overview</a></li>
-        <li><a href="https://www.helpguide.org/articles/addictions/gambling-addiction-and-problem-gambling.htm" target="_blank">HelpGuide: Understanding Gambling Addiction</a></li>
-        <li><a href="https://www.gamblersanonymous.org/ga/content/20-questions" target="_blank">Gamblers Anonymous: 20 Questions</a></li>
-        <li><a href="https://www.begambleaware.org/understanding-gambling-problems" target="_blank">BeGambleAware: Understanding Gambling Problems</a></li>
-    </ul>
-    <p>These resources provide quick, reliable information to help understand and address gambling issues. Remember, seeking professional help is always recommended for personalized support.</p>
-</div>
+            <h2>Quick Educational Resources for Gamblers</h2>
+            <ul>
+                <li><a href="https://www.ncpgambling.org/help-treatment/faq/" target="_blank">NCPG: Frequently Asked Questions about Gambling Addiction</a></li>
+                <li><a href="https://www.mayoclinic.org/diseases-conditions/compulsive-gambling/symptoms-causes/syc-20355178" target="_blank">Mayo Clinic: Compulsive Gambling Overview</a></li>
+                <li><a href="https://www.helpguide.org/articles/addictions/gambling-addiction-and-problem-gambling.htm" target="_blank">HelpGuide: Understanding Gambling Addiction</a></li>
+                <li><a href="https://www.gamblersanonymous.org/ga/content/20-questions" target="_blank">Gamblers Anonymous: 20 Questions</a></li>
+                <li><a href="https://www.begambleaware.org/understanding-gambling-problems" target="_blank">BeGambleAware: Understanding Gambling Problems</a></li>
+            </ul>
+            <p>These resources provide quick, reliable information to help understand and address gambling issues. Remember, seeking professional help is always recommended for personalized support.</p>
+        </div>
     </main>
 
+    <div class="container">
+        <div class="book" id="book">
+            <!-- Pages will be dynamically inserted here -->
+        </div>
+    </div>
+    <div class="nav-buttons">
+        <button class="nav-button" onclick="prevPage()">Previous</button>
+        <button class="nav-button" onclick="nextPage()">Next</button>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="script.js"></script>
     <script>
         const chatMessages = document.getElementById('chat-messages');
         const userInput = document.getElementById('user-input');
@@ -206,4 +220,5 @@
         // Initial AI greeting
         addMessage("Hello! I'm your AI assistant to help you quit gambling. How can I support you today?", false);
     </script>
-</body></html>
+</body>
+</html>
