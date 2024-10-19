@@ -59,6 +59,7 @@ h1 {
     overflow-y: auto;
     backface-visibility: hidden;
     transform-origin: left center;
+    transition: transform 0.5s, z-index 0.5s;
 }
 
 .page-content {
