@@ -835,6 +835,7 @@ function createPages() {
     chapters.forEach((chapter, index) => {
         const page = document.createElement('div');
         page.className = 'page';
+        page.style.transform = `rotateY(${index * 180}deg) translateZ(${index * 0.1}px)`;
         page.innerHTML = `
             <div class="page-content">
                 <h2>${chapter.title}</h2>
@@ -850,11 +851,8 @@ function createPages() {
 }
 
 function updateBook() {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach((page, index) => {
-        page.style.transform = `rotateY(${(index - currentPage) * 180}deg) translateZ(${index === currentPage ? 0 : -100}px)`;
-        page.style.zIndex = index === currentPage ? 1 : 0;
-    });
+    const book = document.getElementById('book');
+    book.style.transform = `rotateY(${-currentPage * 180}deg)`;
 }
 
 function nextPage() {
@@ -872,10 +870,5 @@ function prevPage() {
 }
 
 // Initialize the book
-document.addEventListener('DOMContentLoaded', () => {
-    createPages();
-    updateBook();
-
-    document.getElementById('nextBtn').addEventListener('click', nextPage);
-    document.getElementById('prevBtn').addEventListener('click', prevPage);
-});
+createPages();
+updateBook();
