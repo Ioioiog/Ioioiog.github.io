@@ -3,26 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reclaim Your Life: The Ultimate Guide to Conquering Gambling Addiction</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Reclaim Your Life: Overcome Gambling Addiction</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1, h2 {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        p {
+            line-height: 1.8;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Title and Subtitle */
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+        }
+
+        /* Book Display */
+        .book-container {
+            perspective: 1500px;
+            margin-bottom: 30px;
+        }
+        .book {
+            width: 100%;
+            height: 450px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.7s ease;
+        }
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 15px;
+            backface-visibility: hidden;
+            overflow-y: auto;
+            color: #333;
+            transform-origin: left center;
+            transition: transform 0.7s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .page h2 {
+            font-size: 1.8em;
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+
+        /* Navigation Buttons */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .nav-button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            background-color: #3498db;
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        .nav-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        .nav-button:active {
+            transform: translateY(1px);
+        }
+        .nav-button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 15px;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+        .progress {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            transition: width 0.7s ease-in-out;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .page h2 {
+                font-size: 1.6em;
+            }
+            .book {
+                height: 400px;
+            }
+            .nav-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+
+        /* Animations */
+        @keyframes pageTurn {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(-180deg); }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Reclaim Your Life: The Ultimate Guide to Conquering Gambling Addiction</h1>
+        <h1>Reclaim Your Life: Interactive Guide</h1>
         <p class="subtitle">Your journey to freedom starts here</p>
         
         <div class="book-container">
-            <div id="book" class="book">
+            <div id="book" class="book" role="document" aria-label="Interactive guide">
                 <!-- Pages will be dynamically inserted here by JavaScript -->
             </div>
         </div>
         
         <div class="navigation">
-            <button id="prevBtn" class="nav-button">Previous</button>
-            <button id="nextBtn" class="nav-button">Next</button>
+            <button onclick="prevPage()" class="nav-button" id="prev-button" aria-label="Previous chapter">Previous</button>
+            <button onclick="nextPage()" class="nav-button" id="next-button" aria-label="Next chapter">Next</button>
+        </div>
+
+        <div class="progress-bar" aria-label="Progress bar">
+            <div id="progress" class="progress"></div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const chapters = [
+            { 
+                title: "Understanding Gambling Addiction", 
+                content: "Gambling addiction, also known as compulsive gambling, is a serious mental health disorder characterized by an uncontrollable urge to keep gambling despite the toll it takes on your life. It's important to recognize that this is not a matter of willpower, but a complex condition that affects the brain's reward system. This chapter will explore the nature of gambling addiction, its causes, and why it's classified as a mental health disorder."
+            },
+            { 
+                title: "Recognizing the Signs", 
+                content: "Identifying a gambling problem is the first step towards recovery. Some common signs include: 1) Preoccupation with gambling, constantly planning the next venture or ways to get money to gamble. 2) Needing to gamble with increasing amounts of money to get the same thrill. 3) Restlessness or irritability when attempting to cut down or stop gambling. 4) Gambling to escape problems or relieve feelings of helplessness, guilt, anxiety, or depression. 5) Lying to family members or others to hide the extent of gambling. This chapter will delve deeper into these and other signs, helping you or your loved ones recognize when gambling has become problematic."
+            },
+            { 
+                title: "The Science of Addiction", 
+                content: "Understanding the neurological basis of addiction can be empowering in the recovery process. Gambling addiction affects the brain's reward system similarly to drug or alcohol addiction. When a person gambles, the brain releases dopamine, creating a feeling of pleasure or satisfaction. Over time, the brain adapts to this stimulation, leading to tolerance and the need for more gambling to achieve the same 'high'. This chapter will explore the latest scientific research on gambling addiction, including how it affects brain structure and function."
+            },
+            { 
+                title: "Seeking Help and Support", 
+                content: "No one has to face gambling addiction alone. There are many resources available for those seeking help, including therapy, support groups, and rehabilitation programs. This chapter will guide you through the various treatment options, how to choose the right one for you, and what to expect during the recovery process. We'll also discuss the importance of a support system and how to involve family and friends in your journey to recovery."
+            },
+            { 
+                title: "Developing Coping Strategies", 
+                content: "Recovery involves learning new ways to cope with stress and urges to gamble. This chapter will introduce various coping strategies, including mindfulness techniques, stress management, and healthy alternatives to gambling. We'll explore how to identify and avoid triggers, manage cravings, and develop a balanced lifestyle that supports long-term recovery. Practical exercises and tools will be provided to help you build resilience and maintain your commitment to recovery."
+            },
+            { 
+                title: "Rebuilding Financial Health", 
+                content: "Gambling addiction often leaves financial devastation in its wake. This chapter will provide practical advice on how to regain control of your finances. Topics will include creating a budget, dealing with debt, rebuilding credit, and developing healthy financial habits. We'll also discuss the importance of financial transparency with loved ones and how to rebuild trust in financial matters."
+            },
+            { 
+                title: "Repairing Relationships", 
+                content: "Addiction can strain or break relationships with family, friends, and colleagues. This chapter focuses on how to mend these relationships and rebuild trust. We'll discuss effective communication strategies, the importance of honesty and accountability, and how to involve loved ones in the recovery process. The chapter will also address setting healthy boundaries and managing expectations during the healing process."
+            },
+            { 
+                title: "Maintaining Long-Term Recovery", 
+                content: "Recovery is a lifelong journey that requires ongoing commitment and effort. This final chapter will provide strategies for maintaining long-term recovery, including developing a relapse prevention plan, continuing self-care practices, and finding purpose and meaning beyond gambling. We'll discuss the importance of ongoing support, whether through therapy, support groups, or other means, and how to navigate challenges that may arise in the future. Remember, recovery is possible, and a fulfilling life free from gambling addiction is within reach."
+            }
+        ];
+
+        let currentPage = 0;
+        let isAnimating = false;
+
+        function createPage(chapter) {
+            const page = document.createElement('div');
+            page.className = 'page';
+            page.innerHTML = `<h2>${chapter.title}</h2><p>${chapter.content}</p>`;
+            return page;
+        }
+
+        function updateBook() {
+            if (isAnimating) return;
+
+            const book = document.getElementById('book');
+            book.innerHTML = '';
+            book.appendChild(createPage(chapters[currentPage]));
+
+            document.getElementById('prev-button').disabled = currentPage === 0;
+            document.getElementById('next-button').disabled = currentPage === chapters.length - 1;
+
+            const progress = ((currentPage + 1) / chapters.length) * 100;
+            document.getElementById('progress').style.width = `${progress}%`;
+
+            isAnimating = true;
+            book.style.animation = 'pageTurn 0.7s forwards';
+            setTimeout(() => {
+                book.style.animation = '';
+                isAnimating = false;
+            }, 700);
+        }
+
+        function nextPage() {
+            if (currentPage < chapters.length - 1) {
+                currentPage++;
+                updateBook();
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                currentPage--;
+                updateBook();
+            }
+        }
+
+        // Initialize the book
+        updateBook();
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextPage();
+            if (e.key === 'ArrowLeft') prevPage();
+        });
+    </script>
 </body>
 </html>
