@@ -850,11 +850,12 @@ function createPages() {
 }
 
 function updateBook() {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach((page, index) => {
-        page.style.transform = `rotateY(${(index - currentPage) * 180}deg) translateZ(${index === currentPage ? 0 : -100}px)`;
-        page.style.zIndex = index === currentPage ? 1 : 0;
-    });
+    const bookElement = document.getElementById('book');
+    bookElement.innerHTML = `
+        <h2>${chapters[currentPage].title}</h2>
+        <p>${chapters[currentPage].content}</p>
+        <p><strong>Exercise:</strong> ${chapters[currentPage].exercise}</p>
+    `;
 }
 
 function nextPage() {
@@ -871,11 +872,9 @@ function prevPage() {
     }
 }
 
-// Initialize the book
-document.addEventListener('DOMContentLoaded', () => {
-    createPages();
-    updateBook();
+// Add event listeners to navigation buttons
+document.getElementById('prevBtn').addEventListener('click', prevPage);
+document.getElementById('nextBtn').addEventListener('click', nextPage);
 
-    document.getElementById('nextBtn').addEventListener('click', nextPage);
-    document.getElementById('prevBtn').addEventListener('click', prevPage);
-});
+// Initial render
+updateBook();
