@@ -1,523 +1,704 @@
-<html><head><base href="https://responsabill.casino/enhanced/"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Journey to Freedom: Recovery from Gambling Addiction</title><style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="https://responsabill.casino/enhanced/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey to Freedom: Recovery from Gambling Addiction</title>
+    <meta name="description" content="Journey to Freedom: Recovery from Gambling Addiction - An interactive guide to overcoming gambling addiction.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
 
-    :root {
-        --primary-color: #3498db;
-        --secondary-color: #2ecc71;
-        --accent-color: #e74c3c;
-        --text-color: #34495e;
-        --background-color: #ecf0f1;
-    }
-
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: var(--background-color);
-        color: var(--text-color);
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
-
-    .container {
-        max-width: 1200px;
-        width: 90%;
-        padding: 30px;
-        background: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-    }
-
-    h1, h2, h3 {
-        font-family: 'Playfair Display', serif;
-        color: var(--primary-color);
-    }
-
-    h1 {
-        font-size: 2.5em;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .subtitle {
-        text-align: center;
-        font-style: italic;
-        margin-bottom: 30px;
-        color: var(--accent-color);
-    }
-
-    .navigation {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-
-    .nav-button {
-        padding: 10px 20px;
-        font-size: 1em;
-        background-color: var(--primary-color);
-        border: none;
-        border-radius: 5px;
-        color: white;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .nav-button:hover {
-        background-color: var(--secondary-color);
-        transform: translateY(-2px);
-    }
-
-    .progress-bar {
-        width: 100%;
-        height: 10px;
-        background-color: #e0e0e0;
-        border-radius: 5px;
-        overflow: hidden;
-        margin-top: 20px;
-    }
-
-    .progress {
-        height: 100%;
-        background-color: var(--secondary-color);
-        transition: width 0.5s ease-in-out;
-    }
-
-    #chat-messages {
-        height: 300px;
-        overflow-y: auto;
-        border: 1px solid #ddd;
-        padding: 10px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-    }
-
-    .user-message, .ai-message {
-        padding: 10px;
-        margin: 5px 0;
-        border-radius: 5px;
-        max-width: 80%;
-    }
-
-    .user-message {
-        background-color: var(--primary-color);
-        color: white;
-        align-self: flex-end;
-    }
-
-    .ai-message {
-        background-color: var(--secondary-color);
-        color: white;
-        align-self: flex-start;
-    }
-
-    #mood-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-
-    #mood-buttons button {
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    #mood-buttons button:hover {
-        transform: translateY(-2px);
-    }
-
-    @media (max-width: 600px) {
-        .container {
-            width: 95%;
-            padding: 15px;
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --text-color: #34495e;
+            --background-color: #ecf0f1;
         }
 
-        h1 {
-            font-size: 2em;
+        body {
+            font-family: 'Roboto', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-    }
-</style></head><body>
-<div class="container">
-    <h1>Journey to Freedom: Recovery from Gambling Addiction</h1>
-    <p class="subtitle">Embark on your path to healing and reclaiming control</p>
-    
-    <div class="navigation">
-        <button onclick="showPage('home')" class="nav-button">Home</button>
-        <button onclick="showPage('chapters')" class="nav-button">Chapters</button>
-        <button onclick="showPage('exercises')" class="nav-button">Exercises</button>
-        <button onclick="showPage('reflection')" class="nav-button">Reflection</button>
-        <button onclick="showPage('aiChat')" class="nav-button">AI Support</button>
-        <button onclick="showPage('dashboard')" class="nav-button">Your Dashboard</button>
-        <button onclick="showPage('moodTracker')" class="nav-button">Mood Tracker</button>
-        <button onclick="showPage('resources')" class="nav-button">Helpful Resources</button>
-    </div>
-    
-    <div id="home-page" class="page">
-        <h2>Welcome to Your Recovery Journey</h2>
-        <p>This interactive book is designed to guide you through the process of overcoming gambling addiction. Navigate through chapters, complete exercises, and reflect on your progress.</p>
-        <p>Remember, recovery is a journey, and we're here to support you every step of the way.</p>
-    </div>
-    
-    <div id="chapters-page" class="page" style="display:none;">
-        <h2>Chapters</h2>
-        <ul class="chapter-list">
-            <!-- Chapter list will be dynamically populated -->
-        </ul>
-    </div>
-    
-    <div id="reading-page" class="page" style="display:none;">
-        <div id="chapter-content"></div>
-        <div class="book-navigation">
-            <button onclick="changePage(-1)" class="nav-button">Previous</button>
-            <button onclick="changePage(1)" class="nav-button">Next</button>
-        </div>
-    </div>
-    
-    <div id="exercises-page" class="page" style="display:none;">
-        <h2>Exercises</h2>
-        <div id="exercise-container"></div>
-        <textarea id="exercise-response" placeholder="Enter your response here..." rows="5"></textarea>
-        <button onclick="saveExerciseResponse()" class="nav-button">Save Response</button>
-        <button onclick="nextExercise()" class="nav-button">Next Exercise</button>
-    </div>
-    
-    <div id="reflection-page" class="page" style="display:none;">
-        <h2>Daily Reflection</h2>
-        <textarea id="reflection-input" placeholder="Write your thoughts and feelings about your recovery journey today..."></textarea>
-        <button onclick="saveReflection()" class="nav-button">Save Reflection</button>
-        <div id="reflection-feedback"></div>
-    </div>
 
-    <div id="aiChat-page" class="page" style="display:none;">
-        <h2>AI Support Chat</h2>
-        <div id="chat-messages"></div>
-        <input type="text" id="user-input" placeholder="Type your message here...">
-        <button onclick="sendMessage()" class="nav-button">Send</button>
-    </div>
-
-    <div id="dashboard-page" class="page" style="display:none;">
-        <h2>Your Recovery Dashboard</h2>
-        <div id="progress-chart"></div>
-        <div id="streak-counter"></div>
-        <div id="completed-exercises"></div>
-    </div>
-
-    <div id="moodTracker-page" class="page" style="display:none;">
-        <h2>Daily Mood Tracker</h2>
-        <div id="mood-buttons">
-            <button onclick="trackMood('great')">😃 Great</button>
-            <button onclick="trackMood('good')">🙂 Good</button>
-            <button onclick="trackMood('okay')">😐 Okay</button>
-            <button onclick="trackMood('bad')">🙁 Bad</button>
-            <button onclick="trackMood('terrible')">😞 Terrible</button>
-        </div>
-        <div id="mood-history"></div>
-    </div>
-
-    <div id="resources-page" class="page" style="display:none;">
-        <h2>Helpful Resources</h2>
-        <ul>
-            <li><a href="https://www.ncpgambling.org/help-treatment/national-helpline-1-800-522-4700/" target="_blank">National Problem Gambling Helpline</a></li>
-            <li><a href="https://www.gamblersanonymous.org/" target="_blank">Gamblers Anonymous</a></li>
-            <li><a href="https://www.smartrecovery.org/" target="_blank">SMART Recovery</a></li>
-        </ul>
-    </div>
-
-    <div class="progress-bar">
-        <div id="progress" class="progress"></div>
-    </div>
-    <div class="progress-info"></div>
-</div>
-
-<script>
-    const chapters = [
-        {
-            title: "Understanding Gambling Addiction",
-            content: "Gambling addiction, also known as compulsive gambling, is a serious mental health disorder. It's characterized by the inability to control gambling behavior despite negative consequences. This chapter explores the nature of addiction, its causes, and its impact on individuals and their loved ones.",
-            exercise: "Reflect on your gambling habits. Write down three instances where gambling has negatively impacted your life."
-        },
-        {
-            title: "Recognizing the Signs",
-            content: "Identifying a gambling problem is the first step towards recovery. This chapter outlines common signs and symptoms of gambling addiction, including financial troubles, lying about gambling activities, and neglecting responsibilities. We'll also discuss the importance of self-awareness and honesty in this process.",
-            exercise: "List your personal triggers for gambling. What situations or emotions lead you to gamble?"
-        },
-        {
-            title: "The Science of Addiction",
-            content: "Understanding the neurological basis of addiction can be empowering. This chapter delves into how gambling affects the brain's reward system, explaining concepts like dopamine release and the development of addictive patterns. Knowledge is power in the fight against addiction.",
-            exercise: "Research how gambling addiction impacts the brain. Write a short summary of your findings."
-        },
-        {
-            title: "Seeking Help and Support",
-            content: "No one has to face gambling addiction alone. This chapter covers various support options, including therapy, support groups, and helplines. We'll discuss the benefits of professional help and how to find the right resources for your situation.",
-            exercise: "Identify one support resource (therapist or group). Write down their contact information and plan a time to reach out."
-        },
-        {
-            title: "Developing Coping Strategies",
-            content: "Recovery involves learning new ways to cope with stress and urges. This chapter introduces various coping strategies, from mindfulness techniques to hobby development. We'll explore how to build a toolkit of healthy alternatives to gambling.",
-            exercise: "Choose one new coping strategy to try this week. Write about how you will implement it."
-        },
-        {
-            title: "Rebuilding Financial Health",
-            content: "Gambling addiction often leaves financial devastation in its wake. This chapter provides guidance on assessing your financial situation, creating a budget, and developing a plan to address gambling-related debts. We'll also discuss the importance of financial transparency in recovery.",
-            exercise: "Create a simple budget for the next month that accounts for your necessary expenses."
-        },
-        {
-            title: "Repairing Relationships",
-            content: "Addiction can strain or break relationships. This chapter focuses on rebuilding trust, improving communication, and making amends. We'll discuss the role of family therapy and support groups for loved ones affected by gambling addiction.",
-            exercise: "Think of a person you want to reconnect with. Write them a letter expressing your commitment to recovery."
-        },
-        {
-            title: "Maintaining Long-Term Recovery",
-            content: "Recovery is a lifelong journey. This final chapter covers strategies for maintaining sobriety, including ongoing support, self-care practices, and developing a fulfilling life beyond gambling. We'll discuss relapse prevention and how to turn setbacks into opportunities for growth.",
-            exercise: "Outline a personal plan for maintaining your recovery over the next six months."
+        .dark-mode {
+            --background-color: #1a1a1a;
+            --text-color: #f0f0f0;
+            --primary-color: #4a90e2;
+            --secondary-color: #45d6a5;
+            --accent-color: #ff6b6b;
         }
-    ];
 
-    let currentPage = 0;
-    let currentExercise = 0;
-    let exerciseResponses = JSON.parse(localStorage.getItem('exerciseResponses')) || {};
-
-    function showPage(pageId) {
-        document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
-        const pageElement = document.getElementById(`${pageId}-page`);
-        if (pageElement) {
-            pageElement.style.display = 'block';
-            switch(pageId) {
-                case 'reading':
-                    updateBook();
-                    break;
-                case 'exercises':
-                    showExercise();
-                    break;
-                case 'moodTracker':
-                    updateMoodHistory();
-                    break;
-                case 'dashboard':
-                    updateDashboard();
-                    break;
-            }
-        } else {
-            console.error(`Page element not found: ${pageId}-page`);
+        .progress-bar {
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
         }
-    }
 
-    function updateDashboard() {
-        const progressChart = document.getElementById('progress-chart');
-        const streakCounter = document.getElementById('streak-counter');
-        const completedExercises = document.getElementById('completed-exercises');
-        
-        if (progressChart && streakCounter && completedExercises) {
-            const progress = (currentPage + 1) / chapters.length * 100;
-            progressChart.innerHTML = `
-                <h3>Reading Progress</h3>
-                <div class="progress-bar">
-                    <div class="progress" style="width: ${progress}%"></div>
+        .progress {
+            height: 100%;
+            background-color: var(--secondary-color);
+            transition: width 0.5s ease-in-out;
+            background-image: linear-gradient(
+                45deg, 
+                rgba(255,255,255,.15) 25%, 
+                transparent 25%, 
+                transparent 50%, 
+                rgba(255,255,255,.15) 50%, 
+                rgba(255,255,255,.15) 75%, 
+                transparent 75%, 
+                transparent 100%
+            );
+            background-size: 1rem 1rem;
+            animation: progress-animation 1s linear infinite;
+        }
+
+        @keyframes progress-animation {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 0; }
+        }
+
+        .page {
+            transition: opacity 0.3s ease;
+        }
+
+        .page.fade-out {
+            opacity: 0;
+        }
+
+        .page.fade-in {
+            opacity: 1;
+        }
+
+        .custom-scrollbar {
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) var(--background-color);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: var(--background-color);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 custom-scrollbar">
+    <header class="bg-blue-600 text-white p-4 text-center">
+        <h1 class="text-3xl font-bold animate__animated animate__fadeIn" id="mainTitle">Journey to Freedom: Recovery from Gambling Addiction</h1>
+        <p class="text-xl mt-2 animate__animated animate__fadeIn animate__delay-1s" id="mainSubtitle">Embark on your path to healing and reclaiming control</p>
+    </header>
+    <main class="container mx-auto p-4 md:flex">
+        <aside class="md:w-1/4 mb-4 md:mb-0">
+            <nav class="space-y-2 sticky top-4">
+                <select id="languageSelect" onchange="changeLanguage(this.value)" class="w-full p-2 bg-white dark:bg-gray-800 rounded" aria-label="Select language">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="es">Español</option>
+                    <option value="ro">Română</option>
+                    <option value="it">Italiano</option>
+                </select>
+                <button onclick="showPage('home')" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400" id="homeBtn">Home</button>
+                <button onclick="showPage('chapters')" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400" id="chaptersBtn">Chapters</button>
+                <button onclick="showPage('exercises')" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400" id="exercisesBtn">Exercises</button>
+                <button onclick="showPage('reflection')" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400" id="reflectionBtn">Reflection</button>
+                <button onclick="showPage('aiChat')" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400" id="aiSupportBtn">AI Support</button>
+                <button onclick="showPage('dashboard')" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400" id="dashboardBtn">Your Dashboard</button>
+                <button onclick="showPage('moodTracker')" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400" id="moodTrackerBtn">Mood Tracker</button>
+                <button onclick="showPage('resources')" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400" id="resourcesBtn">Helpful Resources</button>
+                <button onclick="toggleDarkMode()" class="w-full p-2 bg-gray-300 dark:bg-gray-700 rounded hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400" id="darkModeToggle">Toggle Dark Mode</button>
+                <button onclick="showEmergencySupport()" class="w-full p-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-400 animate__animated animate__pulse animate__infinite" id="emergencyBtn">Emergency Support</button>
+            </nav>
+        </aside>
+        <section class="md:w-3/4 md:pl-4">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                <div class="mb-4">
+                    <input type="text" id="searchInput" placeholder="Search chapters..." class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <button onclick="searchChapters()" class="mt-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400">Search</button>
                 </div>
-                <p>${Math.round(progress)}% Complete</p>
-            `;
-            
-            const today = new Date().toLocaleDateString();
-            const streakData = JSON.parse(localStorage.getItem('streakData')) || {};
-            let streak = streakData.streak || 0;
-            if (streakData.lastLogin !== today) {
-                streak++;
-                streakData.streak = streak;
-                streakData.lastLogin = today;
-                localStorage.setItem('streakData', JSON.stringify(streakData));
+                <div id="home-page" class="page">
+                    <h2 class="text-2xl font-bold mb-4">Welcome to Your Recovery Journey</h2>
+                    <p class="mb-4">This interactive book is designed to guide you through the process of overcoming gambling addiction. Navigate through chapters, complete exercises, and reflect on your progress.</p>
+                    <p>Remember, recovery is a journey, and we're here to support you every step of the way.</p>
+                    <div class="mt-4">
+                        <h3 class="text-xl font-bold mb-2">Quick Links</h3>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="showPage('chapters')" class="p-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400">Start Reading</button>
+                            <button onclick="showPage('exercises')" class="p-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded hover:bg-green-200 dark:hover:bg-green-800 transition-colors focus:outline-none focus:ring-2 focus:ring-green-400">Do an Exercise</button>
+                            <button onclick="showPage('moodTracker')" class="p-2 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded hover:bg-yellow-200 dark:hover:bg-yellow-800 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400">Track Your Mood</button>
+                            <button onclick="showPage('resources')" class="p-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded hover:bg-purple-200 dark:hover:bg-purple-800 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400">Find Resources</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Other page content divs (chapters, exercises, etc.) go here -->
+                <div id="chapters-page" class="page" style="display:none;">
+                    <h2 class="text-2xl font-bold mb-4">Chapters</h2>
+                    <ul class="chapter-list space-y-2"></ul>
+                </div>
+                <div id="exercises-page" class="page" style="display:none;">
+                    <h2 class="text-2xl font-bold mb-4">Exercises</h2>
+                    <div id="exercise-container"></div>
+                    <textarea id="exercise-response" placeholder="Enter your response here..." rows="5" class="w-full p-2 border rounded mt-4 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+                    <button onclick="saveExerciseResponse()" class="mt-2 p-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-400">Save Response</button>
+                    <button onclick="nextExercise()" class="mt-2 ml-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400">Next Exercise</button>
+                </div>
+                <div id="reflection-page" class="page" style="display:none;">
+                    <h2 class="text-2xl font-bold mb-4">Daily Reflection</h2>
+                    <textarea id="reflection-input" placeholder="Write your thoughts and feelings about your recovery journey today..." rows="5" class="w-full p-2 border rounded mt-4 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+                    <button onclick="saveReflection()" class="mt-2 p-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-400">Save Reflection</button>
+                    <div id="reflection-feedback" class="mt-4"></div>
+                </div>
+                <div id="aiChat-page" class="page" style="display:none;">
+                    <h2 class="text-2xl font-bold mb-4">AI Support Chat</h2>
+                    <div id="chat-messages" class="h-64 overflow-y-auto mb-4 p-2 border rounded"></div>
+                    <input type="text" id="user-input" placeholder="Type your message here..." class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <button onclick="sendMessage()" class="mt-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400">Send</button>
+                </div>
+                <div id="dashboard-page" class="page" style="display:none;">
+                    <h2 class="text-2xl font-bold mb-4">Your Recovery Dashboard</h2>
+                    <div id="progressChart" class="mb-4"></div>
+                    <div id="stats" class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded">
+                            <h3 class="font-bold">Chapters Read</h3>
+                            <p id="chaptersRead">0</p>
+                        </div>
+                        <div class="bg-green-100 dark:bg-green-900 p-4 rounded">
+                            <h3 class="font-bold">Exercises Completed</h3>
+                            <p id="exercisesCompleted">0</p>
+                        </div>
+                    </div>
+                    <h3 class="font-bold mb-2">Bookmarked Chapters</h3>
+                    <ul id="bookmarkedChapters" class="list-disc list-inside mb-4"></ul>
+                    <h3 class="font-bold mb-2">Suggested Chapters</h3>
+                    <ul id="suggestedChapters" class="list-disc list-inside"></ul>
+                </div>
+                <div id="moodTracker-page" class="page" style="display:none;">
+                    <h2 class="text-2xl font-bold mb-4">Daily Mood Tracker</h2>
+                    <div id="mood-buttons" class="flex justify-between mb-4">
+                        <button onclick="trackMood('great')" class="p-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-400">😃 Great</button>
+                        <button onclick="trackMood('good')" class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400">🙂 Good</button>
+                        <button onclick="trackMood('okay')" class="p-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400">😐 Okay</button>
+                        <button onclick="trackMood('bad')" class="p-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-400">🙁 Bad</button>
+                        <button onclick="trackMood('terrible')" class="p-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-400">😞 Terrible</button>
+                    </div>
+                    <div id="mood-history" class="mt-4"></div>
+                    <canvas id="moodChart" class="mt-4"></canvas>
+                </div>
+                <div id="resources-page" class="page" style="display:none;">
+                    <h2 class="text-2xl font-bold mb-4">Helpful Resources</h2>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.ncpgambling.org/help-treatment/national-helpline-1-800-522-4700/" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">National Problem Gambling Helpline</a></li>
+                        <li><a href="https://www.gamblersanonymous.org/" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">Gamblers Anonymous</a></li>
+                        <li><a href="https://www.smartrecovery.org/" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">SMART Recovery</a></li>
+                    </ul>
+                    <h3 class="text-xl font-bold mt-6 mb-2">Local Support Groups</h3>
+                    <div id="local-support-groups"></div>
+                    <button onclick="findLocalSupport()" class="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400">Find Local Support Groups</button>
+                </div>
+                <div class="mt-4">
+                    <div class="progress-bar h-2 w-full">
+                        <div id="progress" class="progress h-full"></div>
+                    </div>
+                    <div class="progress-info mt-2 text-sm text-gray-600 dark:text-gray-400"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-800 text-white p-4 text-center mt-8">
+        <p>&copy; 2023 Journey to Freedom. All rights reserved.</p>
+    </footer>
+    <div id="notificationArea" class="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded shadow-lg hidden"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        let currentLanguage = localStorage.getItem('language') || 'en';
+        let currentPage = 0;
+        let exerciseResponses = JSON.parse(localStorage.getItem('exerciseResponses')) || {};
+        let moodHistory = JSON.parse(localStorage.getItem('moodHistory')) || [];
+
+        const translations = {
+            // ... (keep the existing translations object)
+        };
+
+        const chapters = [
+            // ... (keep the existing chapters array)
+        ];
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('language', lang);
+            document.documentElement.lang = lang;
+            updatePageContent();
+            populateChapterList();
+        }
+
+        function updatePageContent() {
+            document.getElementById('mainTitle').textContent = translations[currentLanguage].title;
+            document.getElementById('mainSubtitle').textContent = translations[currentLanguage].subtitle;
+
+            const buttons = [
+                { id: 'homeBtn', key: 'home' },
+                { id: 'chaptersBtn', key: 'chapters' },
+                { id: 'exercisesBtn', key: 'exercises' },
+                { id: 'reflectionBtn', key: 'reflection' },
+                { id: 'aiSupportBtn', key: 'aiSupport' },
+                { id: 'dashboardBtn', key: 'dashboard' },
+                { id: 'moodTrackerBtn', key: 'moodTracker' },
+                { id: 'resourcesBtn', key: 'resources' },
+                { id: 'darkModeToggle', key: 'toggleDarkMode' },
+                { id: 'emergencyBtn', key: 'emergencySupport' }
+            ];
+
+            buttons.forEach(button => {
+                const element = document.getElementById(button.id);
+                if (element && translations[currentLanguage][button.key]) {
+                    element.textContent = translations[currentLanguage][button.key];
+                }
+            });
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('fade-out');
+                setTimeout(() => {
+                    page.style.display = 'none';
+                    page.classList.remove('fade-out');
+                }, 300);
+            });
+
+            const pageElement = document.getElementById(`${pageId}-page`);
+            if (pageElement) {
+                setTimeout(() => {
+                    pageElement.style.display = 'block';
+                    pageElement.classList.add('fade-in');
+                    setTimeout(() => {
+                        pageElement.classList.remove('fade-in');
+                    }, 300);
+                }, 300);
+
+                switch(pageId) {
+                    case 'reading':
+                        updateBook();
+                        updateRelatedChapters();
+                        break;
+                    case 'exercises':
+                        showExercise();
+                        break;
+                    case 'moodTracker':
+                        updateMoodHistory();
+                        createMoodChart();
+                        break;
+                    case 'dashboard':
+                        updatePersonalizedDashboard();
+                        break;
+                    case 'resources':
+                        loadLocalSupportGroups();
+                        break;
+                }
+            } else {
+                console.error(`Page element not found: ${pageId}-page`);
             }
-            streakCounter.innerHTML = `
-                <h3>Current Streak</h3>
-                <p>${streak} day${streak !== 1 ? 's' : ''}</p>
+            updatePageContent();
+        }
+
+        function populateChapterList() {
+            const chapterList = document.querySelector('.chapter-list');
+            if (chapterList) {
+                chapterList.innerHTML = '';
+                chapters.forEach((chapter, index) => {
+                    const li = document.createElement('li');
+                    const button = document.createElement('button');
+                    button.textContent = chapter.title[currentLanguage];
+                    button.onclick = () => {
+                        currentPage = index;
+                        showPage('reading');
+                        updateBook();
+                    };
+                    button.className = 'w-full p-2 text-left hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400';
+                    li.appendChild(button);
+                    chapterList.appendChild(li);
+                });
+            }
+        }
+
+        function updateBook() {
+            const chapterContent = document.getElementById('chapter-content');
+            if (chapterContent) {
+                chapterContent.innerHTML = `
+                    <h2 class="text-2xl font-bold mb-4">${chapters[currentPage].title[currentLanguage]}</h2>
+                    <p>${chapters[currentPage].content[currentLanguage]}</p>
+                `;
+                updateProgress();
+            }
+            const bookmarkButton = document.getElementById('bookmarkChapter');
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+            if (bookmarkButton) {
+                bookmarkButton.textContent = bookmarks.includes(currentPage) ? 'Remove Bookmark' : 'Bookmark Chapter';
+                bookmarkButton.className = 'mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400';
+            }
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        function showNotification(message) {
+            const notificationArea = document.getElementById('notificationArea');
+            notificationArea.textContent = message;
+            notificationArea.classList.remove('hidden');
+            setTimeout(() => {
+                notificationArea.classList.add('hidden');
+            }, 3000);
+        }
+
+        function updateProgress() {
+            const progress = document.getElementById('progress');
+            const progressInfo = document.querySelector('.progress-info');
+            const totalChapters = chapters.length;
+            const completedChapters = currentPage + 1;
+            const percentComplete = (completedChapters / totalChapters) * 100;
+
+            progress.style.width = `${percentComplete}%`;
+            progressInfo.textContent = `Progress: ${completedChapters} / ${totalChapters} chapters`;
+        }
+
+        function trackMood(mood) {
+            const date = new Date().toISOString().split('T')[0];
+            moodHistory.push({ date, mood });
+            localStorage.setItem('moodHistory', JSON.stringify(moodHistory));
+            updateMoodHistory();
+            createMoodChart();
+            showNotification('Mood tracked successfully!');
+        }
+
+        function updateMoodHistory() {
+            const moodHistoryElement = document.getElementById('mood-history');
+            moodHistoryElement.innerHTML = '<h3 class="text-xl font-bold mb-2">Recent Moods</h3>';
+            moodHistory.slice(-5).reverse().forEach(entry => {
+                const moodEmoji = getMoodEmoji(entry.mood);
+                moodHistoryElement.innerHTML += `<p>${entry.date}: ${moodEmoji} ${entry.mood}</p>`;
+            });
+        }
+
+        function getMoodEmoji(mood) {
+            const moodEmojis = {
+                'great': '😃',
+                'good': '🙂',
+                'okay': '😐',
+                'bad': '🙁',
+                'terrible': '😞'
+            };
+            return moodEmojis[mood] || '❓';
+        }
+
+        function createMoodChart() {
+            const ctx = document.getElementById('moodChart').getContext('2d');
+            const moodData = moodHistory.slice(-30); // Last 30 days
+
+            const data = {
+                labels: moodData.map(entry => entry.date),
+                datasets: [{
+                    label: 'Mood',
+                    data: moodData.map(entry => {
+                        const moodValues = { 'terrible': 1, 'bad': 2, 'okay': 3, 'good': 4, 'great': 5 };
+                        return moodValues[entry.mood];
+                    }),
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            };
+
+            new Chart(ctx, {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 5,
+                            ticks: {
+                                stepSize: 1,
+                                callback: function(value, index, values) {
+                                    return ['', 'Terrible', 'Bad', 'Okay', 'Good', 'Great'][value];
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updatePersonalizedDashboard() {
+            const chaptersRead = currentPage + 1;
+            const exercisesCompleted = Object.keys(exerciseResponses).length;
+
+            document.getElementById('chaptersRead').textContent = chaptersRead;
+            document.getElementById('exercisesCompleted').textContent = exercisesCompleted;
+
+            const bookmarkedChapters = JSON.parse(localStorage.getItem('bookmarks')) || [];
+            const bookmarkedChaptersList = document.getElementById('bookmarkedChapters');
+            bookmarkedChaptersList.innerHTML = '';
+            bookmarkedChapters.forEach(chapterIndex => {
+                const li = document.createElement('li');
+                li.textContent = chapters[chapterIndex].title[currentLanguage];
+                bookmarkedChaptersList.appendChild(li);
+            });
+
+            // Simple recommendation system
+            const suggestedChapters = document.getElementById('suggestedChapters');
+            suggestedChapters.innerHTML = '';
+            for (let i = currentPage + 1; i < Math.min(currentPage + 4, chapters.length); i++) {
+                const li = document.createElement('li');
+                li.textContent = chapters[i].title[currentLanguage];
+                suggestedChapters.appendChild(li);
+            }
+        }
+
+        function loadLocalSupportGroups() {
+            // Simulating an API call to get local support groups
+            setTimeout(() => {
+                const localSupportGroups = [
+                    { name: "City Recovery Center", address: "123 Main St, Anytown, USA" },
+                    { name: "Hope & Healing Group", address: "456 Oak Ave, Somewhere, USA" },
+                    { name: "New Beginnings Support", address: "789 Pine Rd, Elsewhere, USA" }
+                ];
+
+                const groupsContainer = document.getElementById('local-support-groups');
+                groupsContainer.innerHTML = '';
+                localSupportGroups.forEach(group => {
+                    const groupElement = document.createElement('div');
+                    groupElement.className = 'mb-2';
+                    groupElement.innerHTML = `
+                        <h4 class="font-bold">${group.name}</h4>
+                        <p>${group.address}</p>
+                    `;
+                    groupsContainer.appendChild(groupElement);
+                });
+            }, 1000);
+        }
+
+        function findLocalSupport() {
+            // This function would typically use geolocation and make an API call
+            // For this example, we'll just show a notification
+            showNotification('Searching for local support groups...');
+            loadLocalSupportGroups();
+        }
+
+        function showEmergencySupport() {
+            alert("Emergency Helpline: 1-800-522-4700\nLocating nearby support groups...");
+            // In a real application, this would use geolocation to find nearby support groups
+            showNotification('Emergency support information sent to your device.');
+        }
+
+        function showExercise() {
+            const exerciseContainer = document.getElementById('exercise-container');
+            const currentExercise = chapters[currentPage].exercise[currentLanguage];
+            exerciseContainer.innerHTML = `
+                <h3 class="text-xl font-bold mb-2">Exercise</h3>
+                <p class="mb-4">${currentExercise}</p>
             `;
+            const savedResponse = exerciseResponses[currentPage];
+            if (savedResponse) {
+                document.getElementById('exercise-response').value = savedResponse;
+            } else {
+                document.getElementById('exercise-response').value = '';
+            }
+        }
+
+        function saveExerciseResponse() {
+            const response = document.getElementById('exercise-response').value;
+            exerciseResponses[currentPage] = response;
+            localStorage.setItem('exerciseResponses', JSON.stringify(exerciseResponses));
+            showNotification('Exercise response saved successfully!');
+        }
+
+        function nextExercise() {
+            if (currentPage < chapters.length - 1) {
+                currentPage++;
+                showExercise();
+            } else {
+                showNotification('You have completed all exercises!');
+            }
+        }
+
+        function saveReflection() {
+            const reflection = document.getElementById('reflection-input').value;
+            const date = new Date().toISOString().split('T')[0];
+            const reflections = JSON.parse(localStorage.getItem('reflections')) || [];
+            reflections.push({ date, reflection });
+            localStorage.setItem('reflections', JSON.stringify(reflections));
+            showNotification('Reflection saved successfully!');
+            updateReflectionFeedback();
+        }
+
+        function updateReflectionFeedback() {
+            const reflectionFeedback = document.getElementById('reflection-feedback');
+            const reflections = JSON.parse(localStorage.getItem('reflections')) || [];
+            const recentReflections = reflections.slice(-5).reverse();
             
-            const exerciseCount = Object.keys(exerciseResponses).length;
-            completedExercises.innerHTML = `
-                <h3>Completed Exercises</h3>
-                <p>${exerciseCount} / ${chapters.length}</p>
-            `;
+            reflectionFeedback.innerHTML = '<h3 class="text-xl font-bold mb-2">Recent Reflections</h3>';
+            recentReflections.forEach(entry => {
+                reflectionFeedback.innerHTML += `
+                    <div class="mb-2 p-2 bg-gray-100 dark:bg-gray-700 rounded">
+                        <p class="font-bold">${entry.date}</p>
+                        <p>${entry.reflection}</p>
+                    </div>
+                `;
+            });
         }
-    }
 
-    function updateBook() {
-        const chapterContent = document.getElementById('chapter-content');
-        if (chapterContent) {
-            chapterContent.innerHTML = `
-                <h2>${chapters[currentPage].title}</h2>
-                <p>${chapters[currentPage].content}</p>
-            `;
-            updateProgress();
+        function sendMessage() {
+            const userInput = document.getElementById('user-input');
+            const message = userInput.value.trim();
+            if (message) {
+                appendMessage('You', message);
+                userInput.value = '';
+                // Simulate AI response (in a real app, this would call an API)
+                setTimeout(() => {
+                    const aiResponse = getAIResponse(message);
+                    appendMessage('AI', aiResponse);
+                }, 1000);
+            }
         }
-    }
 
-    function changePage(direction) {
-        currentPage += direction;
-        currentPage = Math.max(0, Math.min(currentPage, chapters.length - 1));
-        updateBook();
-        localStorage.setItem('currentPage', currentPage);
-    }
+        function appendMessage(sender, message) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageElement = document.createElement('div');
+            messageElement.className = `mb-2 ${sender === 'You' ? 'text-right' : 'text-left'}`;
+            messageElement.innerHTML = `
+                <span class="font-bold">${sender}:</span>
+                <span>${message}</span>
+            `;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
 
-    function populateChapterList() {
-        const chapterList = document.querySelector('.chapter-list');
-        if (chapterList) {
-            chapters.forEach((chapter, index) => {
+        function getAIResponse(message) {
+            // This is a simple mock AI response. In a real application, this would be more sophisticated.
+            const responses = [
+                "That's a great point. How does this relate to your recovery journey?",
+                "I understand this might be challenging. Have you considered talking to a support group about this?",
+                "It's normal to feel that way. Remember, recovery is a process, and every step forward is progress.",
+                "That's interesting. Can you tell me more about how this affects your daily life?",
+                "You're doing great by reflecting on this. How can we work together to address this challenge?"
+            ];
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        function searchChapters() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const searchResults = chapters.filter(chapter => 
+                chapter.title[currentLanguage].toLowerCase().includes(searchTerm) ||
+                chapter.content[currentLanguage].toLowerCase().includes(searchTerm)
+            );
+
+            const chapterList = document.querySelector('.chapter-list');
+            chapterList.innerHTML = '';
+            searchResults.forEach((chapter, index) => {
                 const li = document.createElement('li');
                 const button = document.createElement('button');
-                button.textContent = chapter.title;
+                button.textContent = chapter.title[currentLanguage];
                 button.onclick = () => {
-                    currentPage = index;
+                    currentPage = chapters.indexOf(chapter);
                     showPage('reading');
                     updateBook();
                 };
+                button.className = 'w-full p-2 text-left hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400';
                 li.appendChild(button);
                 chapterList.appendChild(li);
             });
-        }
-    }
 
-    function updateProgress() {
-        const progress = (currentPage + 1) / chapters.length * 100;
-        const progressElement = document.getElementById('progress');
-        if (progressElement) {
-            progressElement.style.width = `${progress}%`;
-        }
-
-        const completedExercises = Object.keys(exerciseResponses).length;
-        const progressInfo = document.querySelector('.progress-info');
-        if (progressInfo) {
-            progressInfo.innerHTML = `
-                <p>Chapters read: ${currentPage + 1}/${chapters.length}</p>
-                <p>Exercises completed: ${completedExercises}/${chapters.length}</p>
-            `;
-        }
-    }
-
-    function showExercise() {
-        const exerciseContainer = document.getElementById('exercise-container');
-        if (exerciseContainer) {
-            exerciseContainer.innerHTML = `
-                <h3>${chapters[currentExercise].title} - Exercise</h3>
-                <p>${chapters[currentExercise].exercise}</p>
-            `;
-            const exerciseResponse = document.getElementById('exercise-response');
-            if (exerciseResponse) {
-                exerciseResponse.value = exerciseResponses[currentExercise] || '';
+            if (searchResults.length === 0) {
+                chapterList.innerHTML = '<li class="p-2">No results found</li>';
             }
         }
-    }
 
-    function saveExerciseResponse() {
-        const response = document.getElementById('exercise-response');
-        if (response) {
-            exerciseResponses[currentExercise] = response.value;
-            localStorage.setItem('exerciseResponses', JSON.stringify(exerciseResponses));
-            alert('Response saved successfully!');
-            updateProgress();
-        }
-    }
-
-    function nextExercise() {
-        currentExercise = (currentExercise + 1) % chapters.length;
-        showExercise();
-    }
-
-    function saveReflection() {
-        const reflection = document.getElementById('reflection-input');
-        const feedback = document.getElementById('reflection-feedback');
-        if (reflection && feedback) {
-            if (reflection.value.trim() !== '') {
-                feedback.textContent = "Your reflection has been saved. Keep up the great work on your recovery journey!";
-                reflection.value = '';
+        function toggleBookmark() {
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+            const index = bookmarks.indexOf(currentPage);
+            if (index > -1) {
+                bookmarks.splice(index, 1);
+                showNotification('Bookmark removed');
             } else {
-                feedback.textContent = "Please enter a reflection before saving.";
+                bookmarks.push(currentPage);
+                showNotification('Bookmark added');
+            }
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+            updateBook();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            populateChapterList();
+            showPage('home');
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                changePage(-1);
+            } else if (e.key === 'ArrowRight') {
+                changePage(1);
+            }
+        });
+
+        function changePage(direction) {
+            const newPage = currentPage + direction;
+            if (newPage >= 0 && newPage < chapters.length) {
+                currentPage = newPage;
+                showPage('reading');
+                updateBook();
             }
         }
-    }
 
-    const aiResponses = {
-        "urge": "It's normal to experience urges. Let's work through this together. Can you tell me more about what's triggering this urge?",
-        "relapse": "A relapse doesn't erase your progress. It's a moment to learn from. Can you identify what led to this relapse?",
-        "stress": "Stress is a common trigger. Let's explore some stress management techniques. Have you tried progressive muscle relaxation?",
-        "loneliness": "Feeling lonely can be challenging. Have you considered reaching out to a support group or a trusted friend?",
-        "financial": "Financial concerns are common in recovery. Have you created a budget or consulted with a financial advisor?",
-        "motivation": "It's normal for motivation to fluctuate. Let's revisit your reasons for seeking recovery. What inspired you to start this journey?",
-        "default": "Thank you for sharing. Recovery is a journey, and every step counts. Can you tell me more about what you're experiencing right now?"
-    };
-
-    function sendMessage() {
-        const userInput = document.getElementById('user-input');
-        const chatMessages = document.getElementById('chat-messages');
-        if (userInput && chatMessages) {
-            const userMessage = userInput.value;
-            chatMessages.innerHTML += `<p class="user-message"><strong>You:</strong> ${userMessage}</p>`;
-            
-            setTimeout(() => {
-                let aiResponse = aiResponses.default;
-                for (let key in aiResponses) {
-                    if (userMessage.toLowerCase().includes(key)) {
-                        aiResponse = aiResponses[key];
-                        break;
-                    }
-                }
-                chatMessages.innerHTML += `<p class="ai-message"><strong>AI Support:</strong> ${aiResponse}</p>`;
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 1000);
-            
-            userInput.value = '';
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered successfully:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
         }
-    }
 
-    function trackMood(mood) {
-        const date = new Date().toLocaleDateString();
-        const moodHistory = JSON.parse(localStorage.getItem('moodHistory')) || {};
-        moodHistory[date] = mood;
-        localStorage.setItem('moodHistory', JSON.stringify(moodHistory));
-        updateMoodHistory();
-    }
+        // Add event listeners for custom events
+        window.addEventListener('journeyProgress', updateProgress);
+        window.addEventListener('moodUpdated', createMoodChart);
+        window.addEventListener('exerciseCompleted', updatePersonalizedDashboard);
 
-    function updateMoodHistory() {
-        const moodHistory = JSON.parse(localStorage.getItem('moodHistory')) || {};
-        const historyDiv = document.getElementById('mood-history');
-        if (historyDiv) {
-            historyDiv.innerHTML = '<h3>Your Mood History</h3>';
-            const moodColors = {
-                'great': '#2ecc71',
-                'good': '#3498db',
-                'okay': '#f1c40f',
-                'bad': '#e67e22',
-                'terrible': '#e74c3c'
-            };
-            for (let date in moodHistory) {
-                const mood = moodHistory[date];
-                historyDiv.innerHTML += `
-                    <div style="display: flex; align-items: center; margin-bottom: 5px;">
-                        <div style="width: 20px; height: 20px; background-color: ${moodColors[mood]}; margin-right: 10px; border-radius: 50%;"></div>
-                        <p>${date}: ${mood}</p>
-                    </div>
-                `;
-            }
+        // Custom event dispatch examples
+        function dispatchJourneyProgressEvent() {
+            window.dispatchEvent(new Event('journeyProgress'));
         }
-    }
 
-    function loadSavedData() {
-        const savedPage = localStorage.getItem('currentPage');
-        if (savedPage) {
-            currentPage = parseInt(savedPage);
+        function dispatchMoodUpdatedEvent() {
+            window.dispatchEvent(new Event('moodUpdated'));
         }
-        updateProgress();
-    }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        populateChapterList();
-        loadSavedData();
-        showPage('home');
-    });
-</script>
-</body></html>
+        function dispatchExerciseCompletedEvent() {
+            window.dispatchEvent(new Event('exerciseCompleted'));
+        }
+
+        // Call these functions when appropriate in your application
+    </script>
+</body>
+</html>
