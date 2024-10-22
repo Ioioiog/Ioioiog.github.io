@@ -1,0 +1,144 @@
+<!DOCTYPE html><html><head><base href="https://responsabill.casino/resources/online-support-groups">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Support Groups | ResponsaBILL.casino</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F3F4F6;
+        }
+        .chat-window {
+            height: 400px;
+            overflow-y: auto;
+        }
+        .message {
+            margin: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+        .message.sent {
+            background: #E3F2FD;
+            margin-left: 20%;
+        }
+        .message.received {
+            background: #F5F5F5;
+            margin-right: 20%;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="/" class="text-2xl font-bold text-blue-600">ResponsaBILL.casino</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold mb-6">Support Chat Room</h1>
+        
+        <div class="bg-white rounded-lg shadow-md p-6">
+    <div class="flex justify-between items-center mb-3">
+        <h3 class="text-xl font-semibold">Community Support</h3>
+        <div class="flex items-center space-x-2">
+            <span class="text-sm text-gray-600">Online:</span>
+            <div id="participant-count" class="text-green-600 font-semibold">1</div>
+        </div>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded-lg mb-4 border-l-4 border-blue-500">
+        <div class="flex items-center mb-2">
+            <svg class="w-6 h-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="font-semibold text-blue-700">AI Moderator</span>
+        </div>
+        <p class="text-blue-600">Welcome to our support community! I'm here to facilitate meaningful discussions about recovery from gambling addiction. Please remember to:</p>
+        <ul class="list-disc ml-6 mt-2 text-blue-600">
+            <li>Share your experiences respectfully</li>
+            <li>Stay focused on recovery-related topics</li>
+            <li>Support fellow members in their journey</li>
+            <li>Avoid sharing gambling tips or triggers</li>
+        </ul>
+    </div>
+    
+    <div class="flex space-x-4 mb-4">
+        <div class="flex items-center">
+            <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+            <span class="text-sm text-gray-700" id="current-user">You</span>
+        </div>
+        <div id="active-participants" class="flex flex-wrap gap-2">
+            <!-- Active participants will appear here -->
+        </div>
+    </div>
+
+    <div class="chat-window bg-gray-50 rounded p-4 mb-4" id="community-chat">
+        <div class="message received">
+            <div class="flex items-center mb-1">
+                <svg class="w-4 h-4 text-blue-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-sm font-semibold text-blue-600">AI Moderator</span>
+            </div>
+            Hello! I'm here to help maintain a supportive environment. Feel free to share your recovery journey or ask for support. Remember, we're all here to help each other overcome gambling addiction.
+        </div>
+    </div>
+
+    <div class="flex gap-2">
+        <input type="text" class="flex-1 border rounded px-3 py-2" placeholder="Type your message..." id="community-input">
+        <button onclick="sendMessage('community')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">Send</button>
+    </div>
+</div>
+    </div>
+</main>
+
+    <script>
+        const socket = io('https://responsabill.casino');
+        
+        function sendMessage(room) {
+            const input = document.getElementById(`${room}-input`);
+            const message = input.value.trim();
+            
+            if (message) {
+                socket.emit('chat message', {
+                    room: room,
+                    message: message
+                });
+                
+                addMessage(room, message, true);
+                input.value = '';
+            }
+        }
+
+        function addMessage(room, message, sent = false) {
+            const chat = document.getElementById(`${room}-chat`);
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sent ? 'sent' : 'received'}`;
+            messageDiv.textContent = message;
+            chat.appendChild(messageDiv);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        socket.on('chat message', (data) => {
+            if (data.room) {
+                addMessage(data.room, data.message);
+            }
+        });
+
+        // Handle enter key
+        document.querySelectorAll('input[type="text"]').forEach(input => {
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const room = input.id.split('-')[0];
+                    sendMessage(room);
+                }
+            });
+        });
+    </script>
+
+</body></html>
