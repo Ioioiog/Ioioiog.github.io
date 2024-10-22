@@ -87,19 +87,47 @@
         </div>
 
         <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-            <h2 class="text-2xl font-semibold mb-4">Your Trigger and Urge History</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <canvas id="urgeChart" width="400" height="200"></canvas>
-                </div>
-                <div>
-                    <canvas id="triggerChart" width="400" height="200"></canvas>
-                </div>
-                <div>
-                    <canvas id="copingChart" width="400" height="200"></canvas>
-                </div>
+    <h2 class="text-2xl font-semibold mb-6 text-blue-600 border-b pb-2">Your Trigger and Urge History</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="bg-gray-50 p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg">
+        <h3 class="text-xl font-semibold mb-4 text-blue-700">Urge Intensity Over Time</h3>
+        <canvas id="urgeChart" width="400" height="200" class="mb-4"></canvas>
+        <p class="text-sm text-gray-600">This chart shows how your urge intensity has changed over time. Look for patterns and improvements.</p>
+    </div>
+    <div class="bg-gray-50 p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg">
+        <h3 class="text-xl font-semibold mb-4 text-blue-700">Trigger Distribution</h3>
+        <canvas id="triggerChart" width="400" height="200" class="mb-4"></canvas>
+        <p class="text-sm text-gray-600">Understand which triggers are most common for you. This can help focus your coping strategies.</p>
+    </div>
+    <div class="bg-gray-50 p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg md:col-span-2">
+        <h3 class="text-xl font-semibold mb-4 text-blue-700">Coping Strategy Effectiveness</h3>
+        <canvas id="copingChart" width="800" height="200" class="mb-4"></canvas>
+        <p class="text-sm text-gray-600">Compare the effectiveness of different coping strategies. Focus on those that work best for you.</p>
+    </div>
+    <div class="bg-blue-50 p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg md:col-span-2">
+        <h3 class="text-xl font-semibold mb-4 text-blue-700">Weekly Progress Summary</h3>
+        <div id="weeklyProgress" class="flex justify-between items-center">
+            <div class="text-center">
+                <p class="text-2xl font-bold text-blue-600" id="avgIntensity">-</p>
+                <p class="text-sm text-gray-600">Avg. Intensity</p>
+            </div>
+            <div class="text-center">
+                <p class="text-2xl font-bold text-green-600" id="successfulCoping">-</p>
+                <p class="text-sm text-gray-600">Successful Coping</p>
+            </div>
+            <div class="text-center">
+                <p class="text-2xl font-bold text-purple-600" id="triggerReduction">-</p>
+                <p class="text-sm text-gray-600">Trigger Reduction</p>
             </div>
         </div>
+    </div>
+</div>
+    <div class="mt-6 text-center">
+        <button id="toggleChartView" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+            Toggle Chart View
+        </button>
+    </div>
+</div>
 
         <div class="bg-white rounded-lg shadow-md p-6 mb-8">
             <h2 class="text-2xl font-semibold mb-4">Insights and Recommendations</h2>
