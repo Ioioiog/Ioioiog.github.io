@@ -1,0 +1,299 @@
+<html><head><base href="https://responsabill.casino/workbook/program-content">
+<title>ResponsaBill.Casino Recovery Workbook</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --primary: #2C3E50;
+  --secondary: #34495E;
+  --accent: #3498DB;
+  --background: #F8F9FA;
+  --text: #2C3E50;
+  --light-gray: #ECF0F1;
+  --success: #2ECC71;
+  --warning: #F1C40F;
+  --danger: #E74C3C;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.workbook-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.header {
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 2px solid var(--light-gray);
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  color: var(--primary);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.header .subtitle {
+  color: var(--secondary);
+  font-size: 1.2rem;
+}
+
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.section-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: 1px solid var(--light-gray);
+}
+
+.section-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.section-card h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.section-card .page-range {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.section-card .description {
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.progress-indicator {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--light-gray);
+}
+
+.progress-bar {
+  flex-grow: 1;
+  height: 6px;
+  background: var(--light-gray);
+  border-radius: 3px;
+  margin-right: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--success);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  color: var(--secondary);
+  white-space: nowrap;
+}
+
+.watermark {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 0.8rem;
+  color: var(--text);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .workbook-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .sections-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('.section-card');
+  
+  sections.forEach(section => {
+    // Randomly set progress for demo purposes
+    const progress = Math.floor(Math.random() * 100);
+    const progressBar = section.querySelector('.progress-fill');
+    const progressText = section.querySelector('.progress-text');
+    
+    progressBar.style.width = `${progress}%`;
+    progressText.textContent = `${progress}% Complete`;
+    
+    section.addEventListener('click', function() {
+      const pageRange = this.querySelector('.page-range').textContent;
+      const sectionTitle = this.querySelector('h3').textContent;
+      window.location.href = `https://responsabill.casino/workbook/section/${sectionTitle.toLowerCase().replace(/\s+/g, '-')}?pages=${pageRange}`;
+    });
+  });
+});
+</script>
+</head>
+<body>
+
+<div class="workbook-container">
+  <header class="header">
+    <h1>ResponsaBill.Casino Recovery Workbook</h1>
+    <p class="subtitle">Your Journey to Responsible Gaming & Financial Wellness</p>
+  </header>
+
+  <div class="sections-grid">
+    <div class="section-card">
+      <h3>Initial Assessment & Goal Setting</h3>
+      <div class="page-range">Pages 1-10</div>
+      <p class="description">Establish your starting point and define clear, achievable recovery goals.</p>
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <span class="progress-text">0% Complete</span>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Understanding Addiction Patterns</h3>
+      <div class="page-range">Pages 11-20</div>
+      <p class="description">Identify and analyze your gambling triggers and behavioral patterns.</p>
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <span class="progress-text">0% Complete</span>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Financial Recovery Planning</h3>
+      <div class="page-range">Pages 21-30</div>
+      <p class="description">Create a structured plan to rebuild financial stability and security.</p>
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <span class="progress-text">0% Complete</span>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Emotional Regulation & Mindfulness</h3>
+      <div class="page-range">Pages 31-40</div>
+      <p class="description">Develop skills to manage emotions and practice mindful decision-making.</p>
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <span class="progress-text">0% Complete</span>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Building Support Systems</h3>
+      <div class="page-range">Pages 41-50</div>
+      <p class="description">Establish and strengthen your recovery support network.</p>
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <span class="progress-text">0% Complete</span>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Trigger Management</h3>
+      <div class="page-range">Pages 51-60</div>
+      <p class="description">Learn strategies to identify and cope with gambling triggers.</p>
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <span class="progress-text">0% Complete</span>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Lifestyle Reconstruction</h3>
+      <div class="page-range">Pages 61-70</div>
+      <p class="description">Rebuild healthy habits and positive lifestyle choices.</p>
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <span class="progress-text">0% Complete</span>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Relapse Prevention</h3>
+      <div class="page-range">Pages 71-80</div>
+      <p class="description">Develop strategies to maintain recovery and prevent relapse.</p>
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <span class="progress-text">0% Complete</span>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Future Planning & Maintenance</h3>
+      <div class="page-range">Pages 81-88</div>
+      <p class="description">Create a sustainable plan for long-term recovery success.</p>
+      <div class="progress-indicator">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <span class="progress-text">0% Complete</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="watermark">
+  ResponsaBill.Casino Professional Workbook • Protected Content • User ID: 78249 • Session: 2024-01-20-15:30
+</div>
+
+</body></html>

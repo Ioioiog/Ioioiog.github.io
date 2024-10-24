@@ -1,0 +1,450 @@
+<html><head><base href="https://responsabill.casino/workbook/section/lifestyle-reconstruction?pages=Pages%252061-70">
+<title>Lifestyle Reconstruction | ResponsaBill.Casino Workbook</title>
+<style>
+:root {
+  --primary: #2C3E50;
+  --secondary: #34495E;
+  --accent: #3498DB;
+  --background: #F8F9FA;
+  --text: #2C3E50;
+  --light-gray: #ECF0F1;
+  --success: #27AE60;
+  --warning: #F39C12;
+  --danger: #E74C3C;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+.workbook-section {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--light-gray);
+}
+
+.section-header h1 {
+  color: var(--primary);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.lifestyle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.lifestyle-card {
+  background: linear-gradient(145deg, #ffffff, #f5f7fa);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.lifestyle-card:hover {
+  transform: translateY(-5px);
+}
+
+.activity-planner {
+  background: #F0F7FF;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.calendar-day {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.calendar-day:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.habit-tracker {
+  background: #FFF5F5;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.progress-chart {
+  height: 200px;
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.chart-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+}
+
+.goal-setting {
+  background: #F0FFF4;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.goal-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input, select, textarea {
+  padding: 0.8rem;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.action-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  opacity: 0.9;
+}
+
+.progress-indicators {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.indicator {
+  flex: 1;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  text-align: center;
+  border-bottom: 3px solid var(--accent);
+}
+
+.visualization {
+  background: linear-gradient(145deg, #E0F7FA, #B2EBF2);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.support-network {
+  background: #FFF8E1;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.contact-list {
+  list-style: none;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+}
+
+.contact-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--light-gray);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reflection-journal {
+  background: #F3E5F5;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.journal-entry {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--light-gray);
+}
+
+.nav-button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-button.secondary {
+  background: var(--light-gray);
+  color: var(--text);
+}
+
+.watermark {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 0.8rem;
+  color: var(--text);
+  opacity: 0.5;
+}
+</style>
+</head>
+<body>
+
+<div class="workbook-section">
+  <div class="section-header">
+    <h1>Lifestyle Reconstruction</h1>
+    <p>Building a fulfilling life beyond gambling</p>
+    <div class="page-number">Pages 61-70</div>
+  </div>
+
+  <div class="lifestyle-grid">
+    <div class="lifestyle-card">
+      <h2>Daily Structure</h2>
+      <p>Creating healthy routines and habits</p>
+      <div class="routine-builder">
+        <h3>Morning Routine</h3>
+        <ul>
+          <li>6:30 AM - Wake up</li>
+          <li>7:00 AM - Exercise</li>
+          <li>8:00 AM - Breakfast & Planning</li>
+        </ul>
+        <button class="action-btn">Customize Routine</button>
+      </div>
+    </div>
+
+    <div class="lifestyle-card">
+      <h2>Hobby Development</h2>
+      <p>Exploring new interests and activities</p>
+      <div class="hobby-selector">
+        <select>
+          <option>Reading</option>
+          <option>Gardening</option>
+          <option>Cooking</option>
+          <option>Photography</option>
+          <option>Hiking</option>
+        </select>
+        <textarea placeholder="What interests you about this hobby?"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <section class="activity-planner">
+    <h2>Weekly Activity Schedule</h2>
+    <div class="calendar-grid">
+      <div class="calendar-day">Mon</div>
+      <div class="calendar-day">Tue</div>
+      <div class="calendar-day">Wed</div>
+      <div class="calendar-day">Thu</div>
+      <div class="calendar-day">Fri</div>
+      <div class="calendar-day">Sat</div>
+      <div class="calendar-day">Sun</div>
+    </div>
+    <button class="action-btn">Add New Activity</button>
+  </section>
+
+  <section class="habit-tracker">
+    <h2>Positive Habit Development</h2>
+    <div class="progress-indicators">
+      <div class="indicator">
+        <h3>Exercise</h3>
+        <p>15/30 days</p>
+      </div>
+      <div class="indicator">
+        <h3>Meditation</h3>
+        <p>20/30 days</p>
+      </div>
+      <div class="indicator">
+        <h3>Reading</h3>
+        <p>25/30 days</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="goal-setting">
+    <h2>Personal Growth Goals</h2>
+    <div class="goal-form">
+      <div class="form-group">
+        <label>Short-term Goal (1 month)</label>
+        <input type="text" placeholder="Enter your goal">
+      </div>
+      <div class="form-group">
+        <label>Medium-term Goal (6 months)</label>
+        <input type="text" placeholder="Enter your goal">
+      </div>
+      <div class="form-group">
+        <label>Long-term Goal (1 year+)</label>
+        <input type="text" placeholder="Enter your goal">
+      </div>
+    </div>
+  </section>
+
+  <section class="visualization">
+    <h2>Future Self Visualization</h2>
+    <p>Take a moment to imagine and describe your ideal life 1 year from now:</p>
+    <textarea rows="5" placeholder="Describe your vision in detail..."></textarea>
+  </section>
+
+  <section class="support-network">
+    <h2>Building Your Support System</h2>
+    <ul class="contact-list">
+      <li class="contact-item">
+        <div class="contact-avatar">👥</div>
+        <div>
+          <h3>Support Group</h3>
+          <p>Weekly meetings - Tuesday 7PM</p>
+        </div>
+      </li>
+      <li class="contact-item">
+        <div class="contact-avatar">💪</div>
+        <div>
+          <h3>Accountability Partner</h3>
+          <p>Daily check-ins</p>
+        </div>
+      </li>
+      <li class="contact-item">
+        <div class="contact-avatar">🏥</div>
+        <div>
+          <h3>Professional Support</h3>
+          <p>Bi-weekly counseling</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="reflection-journal">
+    <h2>Weekly Reflection</h2>
+    <div class="journal-entry">
+      <h3>This Week's Achievements</h3>
+      <textarea rows="3" placeholder="What positive changes have you noticed?"></textarea>
+      
+      <h3>Challenges Faced</h3>
+      <textarea rows="3" placeholder="What obstacles did you encounter?"></textarea>
+      
+      <h3>Next Week's Focus</h3>
+      <textarea rows="3" placeholder="What would you like to improve?"></textarea>
+    </div>
+  </section>
+
+  <div class="navigation">
+    <button class="nav-button secondary" onclick="window.location.href='https://responsabill.casino/workbook/section/trigger-management?pages=Pages%2051-60'">Previous Section</button>
+    <button class="nav-button" onclick="window.location.href='https://responsabill.casino/workbook/section/relapse-prevention?pages=Pages%2071-80'">Continue to Relapse Prevention</button>
+  </div>
+</div>
+
+<div class="watermark">
+  ResponsaBill.Casino Professional Workbook • Protected Content • User ID: 78249 • Session: 2024-01-20-15:36
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Calendar interaction
+  const calendarDays = document.querySelectorAll('.calendar-day');
+  calendarDays.forEach(day => {
+    day.addEventListener('click', () => {
+      day.style.background = var(--accent);
+      day.style.color = 'white';
+    });
+  });
+
+  // Habit tracking
+  const indicators = document.querySelectorAll('.indicator');
+  indicators.forEach(indicator => {
+    indicator.addEventListener('click', () => {
+      const progress = indicator.querySelector('p');
+      const [current, total] = progress.textContent.split('/');
+      const newCurrent = Math.min(parseInt(current) + 1, parseInt(total));
+      progress.textContent = `${newCurrent}/${total}`;
+    });
+  });
+
+  // Auto-save functionality
+  const textareas = document.querySelectorAll('textarea');
+  textareas.forEach(textarea => {
+    textarea.addEventListener('input', () => {
+      console.log('Saving progress...');
+      // Implementation for auto-saving content
+    });
+  });
+
+  // Form validation
+  const goalForm = document.querySelector('.goal-form');
+  goalForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Implementation for form submission
+  });
+});
+</script>
+
+</body></html>

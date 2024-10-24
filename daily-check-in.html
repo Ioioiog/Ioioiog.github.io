@@ -1,0 +1,370 @@
+<html><head><base href="https://responsabill.casino/daily-check-in">
+<title>ResponsaBill - Daily Check-in</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #6C63FF;
+  --secondary: #34495E;
+  --accent: #8A84FF;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --danger: #FF5252;
+  --light: #F5F6FA;
+  --dark: #2C3E50;
+  --text: #333333;
+  --background: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --gradient: linear-gradient(135deg, #6C63FF 0%, #8A84FF 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.navbar {
+  background: var(--background);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.main-container {
+  max-width: 800px;
+  margin: 80px auto 0;
+  padding: 2rem;
+}
+
+.check-in-form {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-header h1 {
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.mood-selector {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+
+.mood-option {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  border: 2px solid var(--light);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mood-option:hover {
+  border-color: var(--primary);
+  background: rgba(108, 99, 255, 0.1);
+}
+
+.mood-option.selected {
+  border-color: var(--primary);
+  background: rgba(108, 99, 255, 0.1);
+}
+
+.mood-emoji {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--light);
+  border-radius: 12px;
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.trigger-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.trigger-option {
+  padding: 0.75rem;
+  border: 2px solid var(--light);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.trigger-option:hover {
+  border-color: var(--primary);
+  background: rgba(108, 99, 255, 0.1);
+}
+
+.trigger-option.selected {
+  border-color: var(--primary);
+  background: rgba(108, 99, 255, 0.1);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--gradient);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+.streak-counter {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--light);
+  border-radius: 12px;
+}
+
+.streak-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.progress-indicator {
+  margin: 2rem 0;
+}
+
+.progress-bar {
+  height: 8px;
+  background: var(--light);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gradient);
+  width: 0;
+  transition: width 0.5s ease;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Mood selection
+  const moodOptions = document.querySelectorAll('.mood-option');
+  moodOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      moodOptions.forEach(opt => opt.classList.remove('selected'));
+      option.classList.add('selected');
+    });
+  });
+
+  // Trigger selection
+  const triggerOptions = document.querySelectorAll('.trigger-option');
+  triggerOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      option.classList.toggle('selected');
+    });
+  });
+
+  // Form submission
+  const checkInForm = document.getElementById('checkInForm');
+  checkInForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Collect form data
+    const selectedMood = document.querySelector('.mood-option.selected')?.dataset.mood;
+    const selectedTriggers = Array.from(document.querySelectorAll('.trigger-option.selected'))
+      .map(trigger => trigger.dataset.trigger);
+    const journal = document.getElementById('journalEntry').value;
+
+    // Simulate form submission
+    const submitBtn = document.querySelector('.submit-btn');
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+
+    // Simulate API call
+    setTimeout(() => {
+      // Update progress bar
+      const progressFill = document.querySelector('.progress-fill');
+      progressFill.style.width = '100%';
+
+      // Show success message
+      alert('Daily check-in completed successfully!');
+      
+      // Reset form
+      submitBtn.textContent = 'Submit Check-in';
+      submitBtn.disabled = false;
+      
+      // Redirect to dashboard
+      setTimeout(() => {
+        window.location.href = '/dashboard';
+      }, 1000);
+    }, 1500);
+  });
+
+  // Initialize progress bar
+  const progressFill = document.querySelector('.progress-fill');
+  progressFill.style.width = '0%';
+  setTimeout(() => {
+    progressFill.style.width = '30%';
+  }, 300);
+});
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-content">
+    <a href="/" class="logo">ResponsaBill</a>
+    <div class="nav-links">
+      <a href="/dashboard" class="nav-link">Dashboard</a>
+      <a href="/challenges" class="nav-link">Challenges</a>
+      <a href="/community" class="nav-link">Community</a>
+      <a href="/profile" class="nav-link">Profile</a>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <div class="streak-counter">
+    <div class="streak-number">15</div>
+    <div>Day Streak</div>
+  </div>
+
+  <div class="check-in-form">
+    <div class="form-header">
+      <h1>Daily Check-in</h1>
+      <p>Take a moment to reflect on your day and track your progress</p>
+    </div>
+
+    <div class="progress-indicator">
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+
+    <form id="checkInForm">
+      <div class="form-group">
+        <label>How are you feeling today?</label>
+        <div class="mood-selector">
+          <div class="mood-option" data-mood="great">
+            <div class="mood-emoji">😊</div>
+            <div>Great</div>
+          </div>
+          <div class="mood-option" data-mood="good">
+            <div class="mood-emoji">🙂</div>
+            <div>Good</div>
+          </div>
+          <div class="mood-option" data-mood="okay">
+            <div class="mood-emoji">😐</div>
+            <div>Okay</div>
+          </div>
+          <div class="mood-option" data-mood="challenging">
+            <div class="mood-emoji">😔</div>
+            <div>Challenging</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Did you experience any triggers today?</label>
+        <div class="trigger-selector">
+          <div class="trigger-option" data-trigger="stress">Stress</div>
+          <div class="trigger-option" data-trigger="social">Social Pressure</div>
+          <div class="trigger-option" data-trigger="loneliness">Loneliness</div>
+          <div class="trigger-option" data-trigger="boredom">Boredom</div>
+          <div class="trigger-option" data-trigger="anxiety">Anxiety</div>
+          <div class="trigger-option" data-trigger="celebration">Celebration</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="journalEntry">Daily Reflection (Optional)</label>
+        <textarea id="journalEntry" placeholder="Share your thoughts about today..."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Check-in</button>
+    </form>
+  </div>
+</div>
+
+</body></html>

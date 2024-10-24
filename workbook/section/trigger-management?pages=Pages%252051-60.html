@@ -1,0 +1,516 @@
+<!DOCTYPE html><html><head><base href="https://responsabill.casino/workbook/section/trigger-management?pages=Pages%252051-60">
+<title>Trigger Management | ResponsaBill.Casino Workbook</title>
+<style>
+:root {
+  --primary: #2C3E50;
+  --secondary: #34495E;
+  --accent: #E74C3C;
+  --background: #F8F9FA;
+  --text: #2C3E50;
+  --light-gray: #ECF0F1;
+  --warning: #F39C12;
+  --success: #27AE60;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+.workbook-section {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  border-bottom: 2px solid var(--light-gray);
+  padding-bottom: 1rem;
+}
+
+.trigger-map {
+  background: #FFF5F5;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.trigger-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.trigger-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.response-plan {
+  background: linear-gradient(135deg, #F8F9FA 0%, #ECF0F1 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.coping-strategies {
+  list-style: none;
+}
+
+.strategy-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.strategy-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--light-gray);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trigger-tracker {
+  background: #FFF8DC;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.tracker-form {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input, select, textarea {
+  padding: 0.8rem;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.intensity-scale {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.scale-point {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid var(--light-gray);
+  transition: all 0.3s ease;
+}
+
+.scale-point:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.progress-chart {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.chart-container {
+  height: 300px;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.emergency-protocol {
+  background: #FFEBEE;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  border-left: 4px solid var(--warning);
+}
+
+.protocol-steps {
+  list-style: none;
+  counter-reset: step;
+}
+
+.protocol-step {
+  margin: 1rem 0;
+  padding-left: 2.5rem;
+  position: relative;
+}
+
+.protocol-step::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--warning);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.success-visualization {
+  background: #E8F5E9;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  border-left: 4px solid var(--success);
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--light-gray);
+}
+
+.nav-button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  opacity: 0.9;
+}
+
+.nav-button.secondary {
+  background: var(--light-gray);
+  color: var(--text);
+}
+
+.watermark {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 0.8rem;
+  color: var(--text);
+  opacity: 0.5;
+}
+</style>
+</head>
+<body>
+
+<div class="workbook-section">
+  <div class="page-header">
+    <h1>Trigger Management</h1>
+    <div class="page-number">Pages 51-60</div>
+    <p>Identifying, understanding, and managing gambling triggers</p>
+  </div>
+
+  <section class="trigger-map">
+    <h2>Personal Trigger Mapping</h2>
+    <p>Understanding your personal triggers is crucial for developing effective management strategies. Use this interactive map to identify and track your triggers.</p>
+    
+    <div class="trigger-grid">
+        <div class="trigger-card trigger-card-emotional">
+            <h3>Emotional Triggers</h3>
+            <ul>
+                <li>Stress <span class="intensity-indicator">⚡⚡⚡</span></li>
+                <li>Boredom <span class="intensity-indicator">⚡⚡</span></li>
+                <li>Loneliness <span class="intensity-indicator">⚡⚡⚡</span></li>
+                <li>Financial pressure <span class="intensity-indicator">⚡⚡⚡</span></li>
+                <li>Excitement seeking <span class="intensity-indicator">⚡⚡</span></li>
+            </ul>
+            <div class="trigger-notes">
+                <textarea placeholder="Add personal notes about your emotional triggers..."></textarea>
+            </div>
+        </div>
+        
+        <div class="trigger-card trigger-card-environmental">
+            <h3>Environmental Triggers</h3>
+            <ul>
+                <li>Online advertisements <span class="intensity-indicator">⚡⚡⚡</span></li>
+                <li>Sports events <span class="intensity-indicator">⚡⚡</span></li>
+                <li>Social media <span class="intensity-indicator">⚡⚡⚡</span></li>
+                <li>Payment notifications <span class="intensity-indicator">⚡⚡</span></li>
+                <li>Casino locations <span class="intensity-indicator">⚡⚡⚡</span></li>
+            </ul>
+            <div class="trigger-notes">
+                <textarea placeholder="Add notes about environmental triggers..."></textarea>
+            </div>
+        </div>
+        
+        <div class="trigger-card trigger-card-social">
+            <h3>Social Triggers</h3>
+            <ul>
+                <li>Friends who gamble <span class="intensity-indicator">⚡⚡⚡</span></li>
+                <li>Celebrations <span class="intensity-indicator">⚡⚡</span></li>
+                <li>Social pressure <span class="intensity-indicator">⚡⚡</span></li>
+                <li>Work events <span class="intensity-indicator">⚡⚡</span></li>
+                <li>Family gatherings <span class="intensity-indicator">⚡</span></li>
+            </ul>
+            <div class="trigger-notes">
+                <textarea placeholder="Add notes about social triggers..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    .trigger-map {
+        background: linear-gradient(145deg, #FFF5F5 0%, #FFF8F0 100%);
+        padding: 2.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .trigger-card {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .trigger-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .trigger-card-emotional { border-left-color: #FF6B6B; }
+    .trigger-card-environmental { border-left-color: #4ECDC4; }
+    .trigger-card-social { border-left-color: #45B7D1; }
+
+    .intensity-indicator {
+        float: right;
+        color: #FF6B6B;
+        font-size: 0.8em;
+    }
+
+    .trigger-notes {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px dashed rgba(0,0,0,0.1);
+    }
+
+    .trigger-notes textarea {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 4px;
+        font-size: 0.9rem;
+        resize: vertical;
+        min-height: 60px;
+    }
+
+    .trigger-card ul li {
+        padding: 0.5rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    .trigger-card:hover .intensity-indicator {
+        animation: pulse 1s infinite;
+    }
+    </style>
+</section>
+
+  <section class="response-plan">
+    <h2>Trigger Response Strategy</h2>
+    <ul class="coping-strategies">
+      <li class="strategy-item">
+        <div class="strategy-icon">🧘</div>
+        <div>
+          <h3>Mindful Breathing</h3>
+          <p>Practice 4-7-8 breathing technique when triggered</p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-icon">📞</div>
+        <div>
+          <h3>Support Call</h3>
+          <p>Contact sponsor or support person immediately</p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-icon">🏃</div>
+        <div>
+          <h3>Physical Activity</h3>
+          <p>Go for a walk or exercise to release tension</p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-icon">📝</div>
+        <div>
+          <h3>Journaling</h3>
+          <p>Write about feelings and urges to gain clarity</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="trigger-tracker">
+    <h2>Daily Trigger Log</h2>
+    <div class="tracker-form">
+      <div class="form-group">
+        <label>Date &amp; Time</label>
+        <input type="datetime-local">
+      </div>
+      
+      <div class="form-group">
+        <label>Trigger Type</label>
+        <select>
+          <option>Emotional</option>
+          <option>Environmental</option>
+          <option>Social</option>
+          <option>Financial</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Trigger Description</label>
+        <textarea placeholder="Describe what triggered you..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Urge Intensity (1-10)</label>
+        <div class="intensity-scale">
+          <div class="scale-point">1</div>
+          <div class="scale-point">2</div>
+          <div class="scale-point">3</div>
+          <div class="scale-point">4</div>
+          <div class="scale-point">5</div>
+          <div class="scale-point">6</div>
+          <div class="scale-point">7</div>
+          <div class="scale-point">8</div>
+          <div class="scale-point">9</div>
+          <div class="scale-point">10</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Coping Strategy Used</label>
+        <textarea placeholder="What did you do to manage the trigger?"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Outcome</label>
+        <textarea placeholder="How effective was your response?"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <section class="emergency-protocol">
+    <h2>Emergency Response Protocol</h2>
+    <ol class="protocol-steps">
+      <li class="protocol-step">Stop and acknowledge the trigger</li>
+      <li class="protocol-step">Take 5 deep breaths</li>
+      <li class="protocol-step">Call your emergency contact</li>
+      <li class="protocol-step">Leave the triggering situation</li>
+      <li class="protocol-step">Engage in pre-planned alternative activity</li>
+    </ol>
+  </section>
+
+  <section class="success-visualization">
+    <h2>Positive Outcome Visualization</h2>
+    <p>Imagine yourself successfully managing triggers:</p>
+    <textarea placeholder="Describe how you want to handle future triggers..."></textarea>
+  </section>
+
+  <div class="navigation">
+    <button class="nav-button secondary" onclick="window.location.href='https://responsabill.casino/workbook/section/building-support-systems?pages=Pages%2041-50'">Previous Section</button>
+    <button class="nav-button" onclick="window.location.href='https://responsabill.casino/workbook/section/lifestyle-reconstruction?pages=Pages%2061-70'">Continue to Lifestyle Reconstruction</button>
+  </div>
+</div>
+
+<div class="watermark">
+  ResponsaBill.Casino Professional Workbook • Protected Content • User ID: 78249 • Session: 2024-01-20-15:36
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Trigger intensity scale interaction
+  const scalePoints = document.querySelectorAll('.scale-point');
+  scalePoints.forEach(point => {
+    point.addEventListener('click', () => {
+      scalePoints.forEach(p => p.style.background = '');
+      point.style.background = 'var(--accent)';
+      point.style.color = 'white';
+    });
+  });
+
+  // Auto-save functionality for form inputs
+  const form = document.querySelector('.tracker-form');
+  form.addEventListener('input', (e) => {
+    console.log('Auto-saving trigger log...');
+    // Implementation for auto-saving form data
+  });
+
+  // Trigger log submission
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log('Submitting trigger log...');
+    // Implementation for submitting form data
+  });
+
+  // Interactive coping strategies
+  const strategyItems = document.querySelectorAll('.strategy-item');
+  strategyItems.forEach(item => {
+    item.addEventListener('click', () => {
+      item.style.transform = 'scale(1.02)';
+      setTimeout(() => {
+        item.style.transform = 'scale(1)';
+      }, 200);
+    });
+  });
+});
+</script>
+
+</body></html>

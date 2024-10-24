@@ -1,0 +1,472 @@
+<!DOCTYPE html><html><head><base href="https://responsabill.casino/community">
+<title>ResponsaBill - Community Support</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #6C63FF;
+  --secondary: #34495E;
+  --accent: #8A84FF;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --danger: #FF5252;
+  --light: #F5F6FA;
+  --dark: #2C3E50;
+  --text: #333333;
+  --background: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --gradient: linear-gradient(135deg, #6C63FF 0%, #8A84FF 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.navbar {
+  background: var(--background);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.community-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.community-title {
+  font-size: 2.5rem;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.community-subtitle {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.community-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.community-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+}
+
+.forum-section {
+  margin-top: 4rem;
+}
+
+.forum-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.forum-title {
+  font-size: 1.75rem;
+  color: var(--dark);
+}
+
+.forum-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-secondary {
+  background: var(--light);
+  color: var(--dark);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.forum-topics {
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.topic-item {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--light);
+  transition: background-color 0.2s ease;
+}
+
+.topic-item:hover {
+  background-color: var(--light);
+}
+
+.topic-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+  background: var(--gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.topic-content {
+  flex: 1;
+}
+
+.topic-title {
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+
+.topic-meta {
+  font-size: 0.875rem;
+  color: var(--secondary);
+}
+
+.topic-stats {
+  display: flex;
+  gap: 2rem;
+  margin-left: 2rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .topic-stats {
+    display: none;
+  }
+  
+  .forum-actions {
+    flex-direction: column;
+  }
+}
+</style>
+
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-content">
+    <a href="/" class="logo">ResponsaBill</a>
+    <div class="nav-links">
+      <a href="/dashboard" class="nav-link">Dashboard</a>
+      <a href="/ai-support" class="nav-link">AI Chat Support</a>
+      <a href="/recovery-path" class="nav-link">Recovery Path</a>
+      <a href="/community" class="nav-link">Community</a>
+      <a href="/profile" class="nav-link">Profile</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="community-container">
+    <div class="community-header">
+      <h1>Recovery Community</h1>
+      <p>Connect, share, and support each other on the journey to recovery</p>
+    </div>
+
+    <div class="community-grid">
+      <div class="forum-section">
+        <button class="create-post-button" onclick="openCreatePostModal()">
+          <i class="fas fa-plus"></i> Share Your Story
+        </button>
+
+        <div class="posts" id="postsList">
+          <!-- Posts will be populated by JavaScript -->
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="sidebar-card success-stories">
+          <h3>Success Story of the Day</h3>
+          <p>"After 2 years of struggle, I'm proud to say I'm 365 days gambling-free. The support from this community has been invaluable."</p>
+          <small>- Anonymous Member</small>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Trending Topics</h3>
+          <div class="trending-tags">
+            <span class="tag">#RecoveryWins</span>
+            <span class="tag">#DailyStrength</span>
+            <span class="tag">#Support</span>
+            <span class="tag">#NewBeginnings</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Online Support</h3>
+          <div class="online-users">
+            <div class="user-bubble">
+              <span class="online-indicator"></span>
+              <span>Support Counselor</span>
+            </div>
+            <div class="user-bubble">
+              <span class="online-indicator"></span>
+              <span>Community Moderator</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="createPostModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Share Your Story</h2>
+        <button class="close-modal" onclick="closeCreatePostModal()">×</button>
+      </div>
+      <form class="post-form" id="postForm">
+        <textarea placeholder="Share your thoughts, experiences, or ask for support..."></textarea>
+        <div>
+          <label>
+            <input type="checkbox"> Post anonymously
+          </label>
+        </div>
+        <button type="submit">Share with Community</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const posts = [
+      {
+        id: 1,
+        author: "RecoveryChampion",
+        content: "Today marks my first month without gambling. It hasn't been easy, but with the support of this community and my family, I'm staying strong. Remember, one day at a time!",
+        likes: 24,
+        comments: 8,
+        timeAgo: "2 hours ago"
+      },
+      {
+        id: 2,
+        author: "NewBeginnings",
+        content: "Looking for advice: What strategies have worked for you when dealing with triggering situations? I find weekends particularly challenging.",
+        likes: 15,
+        comments: 12,
+        timeAgo: "4 hours ago"
+      },
+      {
+        id: 3,
+        author: "Anonymous",
+        content: "Just installed the blocking software recommended here. Already feeling more in control. Thank you everyone for the guidance!",
+        likes: 32,
+        comments: 6,
+        timeAgo: "6 hours ago"
+      }
+    ];
+
+    function populatePosts() {
+      const postsList = document.getElementById('postsList');
+      postsList.innerHTML = '';
+
+      posts.forEach(post => {
+        const postElement = document.createElement('div');
+        postElement.className = 'post';
+        postElement.innerHTML = `
+          <div class="post-header">
+            <div class="post-author">
+              <div class="author-avatar">
+                ${post.author.charAt(0)}
+              </div>
+              <div>
+                <strong>${post.author}</strong>
+                <div><small>${post.timeAgo}</small></div>
+              </div>
+            </div>
+            <div class="post-stats">
+              <span><i class="far fa-heart"></i> ${post.likes}</span>
+              <span><i class="far fa-comment"></i> ${post.comments}</span>
+            </div>
+          </div>
+          <div class="post-content">
+            ${post.content}
+          </div>
+          <div class="post-actions">
+            <button class="action-button" onclick="likePost(${post.id})">
+              <i class="far fa-heart"></i> Support
+            </button>
+            <button class="action-button" onclick="commentPost(${post.id})">
+              <i class="far fa-comment"></i> Comment
+            </button>
+            <button class="action-button" onclick="sharePost(${post.id})">
+              <i class="far fa-share-square"></i> Share
+            </button>
+          </div>
+        `;
+        postsList.appendChild(postElement);
+      });
+    }
+
+    function openCreatePostModal() {
+      document.getElementById('createPostModal').style.display = 'flex';
+    }
+
+    function closeCreatePostModal() {
+      document.getElementById('createPostModal').style.display = 'none';
+    }
+
+    function likePost(postId) {
+      const post = posts.find(p => p.id === postId);
+      if (post) {
+        post.likes++;
+        populatePosts();
+      }
+    }
+
+    function commentPost(postId) {
+      alert('Comment feature coming soon!');
+    }
+
+    function sharePost(postId) {
+      alert('Share feature coming soon!');
+    }
+
+    document.getElementById('postForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const content = this.querySelector('textarea').value;
+      const isAnonymous = this.querySelector('input[type="checkbox"]').checked;
+      
+      posts.unshift({
+        id: posts.length + 1,
+        author: isAnonymous ? 'Anonymous' : 'User',
+        content: content,
+        likes: 0,
+        comments: 0,
+        timeAgo: 'Just now'
+      });
+      
+      populatePosts();
+      closeCreatePostModal();
+      this.reset();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      populatePosts();
+    });
+
+    window.onclick = function(event) {
+      if (event.target === document.getElementById('createPostModal')) {
+        closeCreatePostModal();
+      }
+    }
+  </script>
+</div>
+
+</body></html>

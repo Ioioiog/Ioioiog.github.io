@@ -1,0 +1,424 @@
+<!DOCTYPE html><html><head><base href="https://responsabill.casino/welcome">
+<title>ResponsaBill - AI-Powered Recovery Assistant</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #6C63FF;
+  --secondary: #34495E;
+  --accent: #8A84FF;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --danger: #FF5252;
+  --light: #F5F6FA;
+  --dark: #2C3E50;
+  --text: #333333;
+  --background: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --gradient: linear-gradient(135deg, #6C63FF 0%, #8A84FF 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.navbar {
+  background: var(--background);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.main-container {
+  max-width: 1400px;
+  margin: 80px auto 0;
+  padding: 2rem;
+}
+
+.welcome-section {
+  background: var(--gradient);
+  color: white;
+  padding: 3rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.stat-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-change {
+  font-size: 0.875rem;
+  color: var(--success);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-secondary {
+  background: var(--light);
+  color: var(--text);
+}
+
+.goal-progress {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background: var(--light);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gradient);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.challenges-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.challenge-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.challenge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.badge-active {
+  background: rgba(108, 99, 255, 0.1);
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .main-container {
+    padding: 1rem;
+  }
+  
+  .welcome-section {
+    padding: 2rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ai-chat-widget {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--card-bg);
+  border-radius: 999px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.ai-chat-widget:hover {
+  transform: scale(1.1);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize progress animations
+  const progressBars = document.querySelectorAll('.progress-fill');
+  progressBars.forEach(bar => {
+    const target = bar.getAttribute('data-progress');
+    setTimeout(() => {
+      bar.style.width = `${target}%`;
+    }, 300);
+  });
+
+  // Update streak counter
+  const streakElement = document.getElementById('streak-count');
+  let streak = parseInt(localStorage.getItem('streak') || '0');
+  
+  const lastCheck = localStorage.getItem('lastCheck');
+  const today = new Date().toDateString();
+  
+  if (lastCheck !== today) {
+    streak++;
+    localStorage.setItem('streak', streak);
+    localStorage.setItem('lastCheck', today);
+  }
+  
+  streakElement.textContent = streak;
+
+  // AI Chat Widget functionality
+  const chatWidget = document.querySelector('.ai-chat-widget');
+  chatWidget.addEventListener('click', () => {
+    // Implement chat widget expansion/activation
+    console.log('AI Chat activated');
+  });
+
+  // Dynamic stats update
+  function updateStats() {
+    const stats = document.querySelectorAll('.stat-value');
+    stats.forEach(stat => {
+      const current = parseInt(stat.textContent);
+      const random = Math.random() > 0.5 ? 1 : 0;
+      stat.textContent = current + random;
+    });
+  }
+
+  // Update stats periodically
+  setInterval(updateStats, 30000);
+});
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-content">
+    <a href="/" class="logo">ResponsaBill</a>
+    <div class="nav-links">
+  <a href="/dashboard" class="nav-link">Dashboard</a>
+  <a href="/ai-support" class="nav-link">AI Chat Support</a>
+  <a href="/recovery-path" class="nav-link">Recovery Path</a>
+  <a href="/community" class="nav-link">Community</a>
+  <a href="/profile" class="nav-link">Profile</a>
+</div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <section class="welcome-section">
+    <div class="welcome-text">
+      <h1>Welcome Back!</h1>
+      <p>Your recovery journey continues. Here's your progress so far.</p>
+      <div class="action-buttons">
+        <a href="/daily-check-in" class="btn btn-primary">Daily Check-in</a>
+        <a href="/set-goals" class="btn btn-secondary">Set New Goals</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon">🎯</div>
+      <div class="stat-title">Clean Days</div>
+      <div class="stat-value">15</div>
+      <div class="stat-change">↑ 1 day</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">💰</div>
+      <div class="stat-title">Money Saved</div>
+      <div class="stat-value">$750</div>
+      <div class="stat-change">↑ $50 today</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🌟</div>
+      <div class="stat-title">Achievement Points</div>
+      <div class="stat-value">2,450</div>
+      <div class="stat-change">↑ 150 points</div>
+    </div>
+  </section>
+
+  <section class="goal-progress">
+    <h2>Monthly Progress</h2>
+    <div class="progress-bar">
+      <div class="progress-fill" data-progress="75"></div>
+    </div>
+    <p>75% of your monthly goals completed</p>
+  </section>
+
+  <section class="challenges-section">
+    <div class="challenge-card">
+  <div class="challenge-header">
+    <h3>Daily Meditation</h3>
+    <span class="badge badge-active">Active</span>
+  </div>
+  <p>Complete 10 minutes of mindfulness</p>
+  <div class="progress-bar">
+    <div class="progress-fill" data-progress="60"></div>
+  </div>
+  <div class="action-buttons" style="margin-top: 1rem;">
+    <a href="/meditate" class="btn btn-primary">Meditate Now</a>
+  </div>
+</div>
+    <div class="challenge-card">
+  <div class="challenge-header">
+    <h3>ResponsaBill.Casino Workbook</h3>
+    <span class="badge badge-active">In Progress</span>
+  </div>
+  <p>Complete your daily workbook exercises to track triggers and behaviors</p>
+  <div class="progress-bar">
+    <div class="progress-fill" data-progress="25"></div>
+  </div>
+  <div class="action-buttons" style="margin-top: 1rem;">
+  <a href="/workbook/program-content?chapter=current&amp;mode=interactive&amp;user=authenticated&amp;protection=enabled&amp;timestamp=2024" class="btn btn-primary">
+  <div>
+    <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">PATHWAY TO RECOVERY</h2>
+    <p style="font-size: 0.875rem; opacity: 0.9;">Interactive Professional Workbook</p>
+  </div>
+</a>
+  <a href="/workbook/history" class="btn btn-secondary">View History</a>
+</div>
+</div>
+  </section>
+
+  <div class="ai-chat-widget">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+  </div>
+</div>
+
+</body></html>

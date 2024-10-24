@@ -1,0 +1,351 @@
+<html><head><base href="https://responsabill.casino/set-goals">
+<title>Set Your Recovery Goals - ResponsaBill</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #6C63FF;
+  --secondary: #34495E;
+  --accent: #8A84FF;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --danger: #FF5252;
+  --light: #F5F6FA;
+  --dark: #2C3E50;
+  --text: #333333;
+  --background: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --gradient: linear-gradient(135deg, #6C63FF 0%, #8A84FF 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.navbar {
+  background: var(--background);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.main-container {
+  max-width: 800px;
+  margin: 80px auto 0;
+  padding: 2rem;
+}
+
+.goal-form {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.form-section h2 {
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--light);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.goal-card {
+  background: var(--light);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.goal-card:hover {
+  transform: translateY(-2px);
+}
+
+.goal-card.selected {
+  border: 2px solid var(--primary);
+  background: rgba(108, 99, 255, 0.1);
+}
+
+.timeline-selector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-option {
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+  background: var(--light);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.timeline-option.selected {
+  background: var(--primary);
+  color: white;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  width: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.progress-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.progress-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.progress-step::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--light);
+}
+
+.progress-step.active::after {
+  background: var(--primary);
+}
+
+.step-number {
+  width: 32px;
+  height: 32px;
+  background: var(--light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.step-number.active {
+  background: var(--primary);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    padding: 1rem;
+  }
+  
+  .timeline-selector {
+    flex-direction: column;
+  }
+  
+  .goal-form {
+    padding: 1rem;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const goalCards = document.querySelectorAll('.goal-card');
+  const timelineOptions = document.querySelectorAll('.timeline-option');
+  const form = document.getElementById('goal-form');
+  
+  goalCards.forEach(card => {
+    card.addEventListener('click', () => {
+      goalCards.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+    });
+  });
+  
+  timelineOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      timelineOptions.forEach(o => o.classList.remove('selected'));
+      option.classList.add('selected');
+    });
+  });
+  
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Collect form data
+    const formData = new FormData(form);
+    const goalData = Object.fromEntries(formData.entries());
+    
+    // Save goal data
+    const goals = JSON.parse(localStorage.getItem('recovery-goals') || '[]');
+    goals.push({
+      ...goalData,
+      createdAt: new Date().toISOString(),
+      id: Date.now()
+    });
+    
+    localStorage.setItem('recovery-goals', JSON.stringify(goals));
+    
+    // Redirect to dashboard
+    window.location.href = '/dashboard';
+  });
+});
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-content">
+    <a href="/" class="logo">ResponsaBill</a>
+  </div>
+</nav>
+
+<div class="main-container">
+  <div class="progress-indicator">
+    <div class="progress-step active">
+      <div class="step-number active">1</div>
+      <p>Choose Goal</p>
+    </div>
+    <div class="progress-step">
+      <div class="step-number">2</div>
+      <p>Set Timeline</p>
+    </div>
+    <div class="progress-step">
+      <div class="step-number">3</div>
+      <p>Details</p>
+    </div>
+  </div>
+
+  <form id="goal-form" class="goal-form">
+    <div class="form-section">
+      <h2>Select Your Primary Goal</h2>
+      <div class="goal-card selected">
+        <h3>Complete Abstinence</h3>
+        <p>Stay completely free from gambling activities</p>
+      </div>
+      <div class="goal-card">
+        <h3>Controlled Gaming</h3>
+        <p>Set strict limits and maintain responsible gaming habits</p>
+      </div>
+      <div class="goal-card">
+        <h3>Financial Recovery</h3>
+        <p>Focus on debt management and savings goals</p>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h2>Choose Your Timeline</h2>
+      <div class="timeline-selector">
+        <div class="timeline-option selected">
+          <h3>30 Days</h3>
+          <p>Short-term goal</p>
+        </div>
+        <div class="timeline-option">
+          <h3>90 Days</h3>
+          <p>Medium-term goal</p>
+        </div>
+        <div class="timeline-option">
+          <h3>1 Year</h3>
+          <p>Long-term goal</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h2>Additional Details</h2>
+      <div class="input-group">
+        <label for="motivation">What motivates you to achieve this goal?</label>
+        <textarea id="motivation" name="motivation" rows="3" required></textarea>
+      </div>
+      
+      <div class="input-group">
+        <label for="support">Who can support you in achieving this goal?</label>
+        <input type="text" id="support" name="support" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="obstacles">What obstacles might you face?</label>
+        <textarea id="obstacles" name="obstacles" rows="3" required></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Set My Recovery Goals</button>
+  </form>
+</div>
+
+</body></html>

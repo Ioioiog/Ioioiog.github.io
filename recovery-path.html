@@ -1,0 +1,367 @@
+<html><head><base href="https://responsabill.casino/recovery-path">
+<title>ResponsaBill - Recovery Path</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #6C63FF;
+  --secondary: #34495E;
+  --accent: #8A84FF;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --danger: #FF5252;
+  --light: #F5F6FA;
+  --dark: #2C3E50;
+  --text: #333333;
+  --background: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --gradient: linear-gradient(135deg, #6C63FF 0%, #8A84FF 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.navbar {
+  background: var(--background);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.path-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.path-title {
+  font-size: 2.5rem;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.path-subtitle {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.recovery-timeline {
+  position: relative;
+  margin: 4rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: var(--gradient);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.timeline-content {
+  width: 45%;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-right: 55%;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: 55%;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 32px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: var(--shadow);
+}
+
+.timeline-content h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.timeline-content p {
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.progress-indicator {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--light);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gradient);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  margin-left: 1rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+}
+
+.btn-secondary {
+  background: var(--light);
+  color: var(--dark);
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 2rem;
+  }
+  
+  .timeline-item {
+    flex-direction: column;
+  }
+  
+  .timeline-content {
+    width: 100%;
+    margin: 0 0 0 4rem !important;
+  }
+  
+  .timeline-marker {
+    left: 2rem;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Animate progress bars on scroll
+  const progressBars = document.querySelectorAll('.progress-fill');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const progressBar = entry.target;
+        progressBar.style.width = progressBar.dataset.progress;
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  progressBars.forEach(bar => observer.observe(bar));
+
+  // Add click handlers for action buttons
+  document.querySelectorAll('.action-buttons button').forEach(button => {
+    button.addEventListener('click', function() {
+      const action = this.dataset.action;
+      if (action === 'start') {
+        window.location.href = '/workbook/' + this.closest('.timeline-content').dataset.module;
+      } else if (action === 'resources') {
+        window.location.href = '/resources/' + this.closest('.timeline-content').dataset.module;
+      }
+    });
+  });
+});
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-content">
+    <a href="/" class="logo">ResponsaBill</a>
+    <div class="nav-links">
+      <a href="/dashboard" class="nav-link">Dashboard</a>
+      <a href="/ai-support" class="nav-link">AI Chat Support</a>
+      <a href="/recovery-path" class="nav-link">Recovery Path</a>
+      <a href="/community" class="nav-link">Community</a>
+      <a href="/profile" class="nav-link">Profile</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="path-header">
+    <h1 class="path-title">Your Recovery Journey</h1>
+    <p class="path-subtitle">Track your progress through our comprehensive recovery program. Each stage builds upon the last, helping you develop stronger recovery skills.</p>
+  </div>
+
+  <div class="recovery-timeline">
+    <div class="timeline-line"></div>
+    
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content" data-module="awareness">
+        <h3>Stage 1: Awareness & Commitment</h3>
+        <p>Understanding gambling patterns and making a commitment to change.</p>
+        <div class="progress-indicator">
+          <div class="progress-bar">
+            <div class="progress-fill" data-progress="100%" style="width: 0%"></div>
+          </div>
+          <span class="progress-text">100%</span>
+        </div>
+        <div class="action-buttons">
+          <button class="btn btn-primary" data-action="start">Review Module</button>
+          <button class="btn btn-secondary" data-action="resources">Resources</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content" data-module="stabilization">
+        <h3>Stage 2: Stabilization</h3>
+        <p>Developing coping strategies and managing triggers.</p>
+        <div class="progress-indicator">
+          <div class="progress-bar">
+            <div class="progress-fill" data-progress="75%" style="width: 0%"></div>
+          </div>
+          <span class="progress-text">75%</span>
+        </div>
+        <div class="action-buttons">
+          <button class="btn btn-primary" data-action="start">Continue Module</button>
+          <button class="btn btn-secondary" data-action="resources">Resources</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content" data-module="growth">
+        <h3>Stage 3: Growth & Healing</h3>
+        <p>Rebuilding relationships and developing healthy life patterns.</p>
+        <div class="progress-indicator">
+          <div class="progress-bar">
+            <div class="progress-fill" data-progress="30%" style="width: 0%"></div>
+          </div>
+          <span class="progress-text">30%</span>
+        </div>
+        <div class="action-buttons">
+          <button class="btn btn-primary" data-action="start">Continue Module</button>
+          <button class="btn btn-secondary" data-action="resources">Resources</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content" data-module="maintenance">
+        <h3>Stage 4: Maintenance & Prevention</h3>
+        <p>Long-term recovery strategies and relapse prevention planning.</p>
+        <div class="progress-indicator">
+          <div class="progress-bar">
+            <div class="progress-fill" data-progress="0%" style="width: 0%"></div>
+          </div>
+          <span class="progress-text">0%</span>
+        </div>
+        <div class="action-buttons">
+          <button class="btn btn-primary" data-action="start">Start Module</button>
+          <button class="btn btn-secondary" data-action="resources">Resources</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body></html>

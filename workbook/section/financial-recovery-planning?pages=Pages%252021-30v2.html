@@ -1,0 +1,401 @@
+<html><head><base href="https://responsabill.casino/workbook/section/financial-recovery-planning?pages=Pages%252021-30">
+<title>Financial Recovery Planning | ResponsaBill.Casino Workbook</title>
+<style>
+:root {
+  --primary: #2C3E50;
+  --secondary: #34495E;
+  --accent: #3498DB;
+  --background: #F8F9FA;
+  --text: #2C3E50;
+  --light-gray: #ECF0F1;
+  --warning: #E74C3C;
+  --success: #27AE60;
+  --chart-blue: #3498DB;
+  --chart-red: #E74C3C;
+  --chart-green: #2ECC71;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+.workbook-section {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  border-bottom: 2px solid var(--light-gray);
+  padding-bottom: 1rem;
+}
+
+.financial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.financial-form {
+  background: var(--light-gray);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input[type="number"],
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #CBD5E0;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.debt-tracker {
+  border: 2px solid var(--light-gray);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.debt-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.debt-table th,
+.debt-table td {
+  padding: 0.8rem;
+  border: 1px solid var(--light-gray);
+  text-align: left;
+}
+
+.debt-table th {
+  background: var(--light-gray);
+  font-weight: 600;
+}
+
+.recovery-plan {
+  background: #F7FBFF;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.budget-calculator {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.progress-tracker {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+}
+
+.progress-bar {
+  height: 20px;
+  background: var(--light-gray);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--success);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.milestone-list {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.milestone-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--light-gray);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--light-gray);
+}
+
+.nav-button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.nav-button:hover {
+  opacity: 0.9;
+}
+
+.nav-button.secondary {
+  background: var(--light-gray);
+  color: var(--text);
+}
+
+.watermark {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 0.8rem;
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.chart-container {
+  margin: 2rem 0;
+  height: 300px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .financial-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="workbook-section">
+  <div class="page-header">
+    <h1>Financial Recovery Planning</h1>
+    <div class="page-number">Pages 21-30</div>
+    <p>Building a sustainable financial future through structured planning and accountability</p>
+  </div>
+
+  <form id="financialRecoveryForm">
+    <section class="current-assessment">
+      <h2>Current Financial Assessment</h2>
+      <div class="financial-grid">
+        <div class="financial-form">
+          <h3>Income Sources</h3>
+          <div class="form-group">
+            <label>Primary Income:</label>
+            <input type="number" placeholder="$0.00" required>
+          </div>
+          <div class="form-group">
+            <label>Additional Income:</label>
+            <input type="number" placeholder="$0.00">
+          </div>
+          <div class="form-group">
+            <label>Total Monthly Income:</label>
+            <input type="number" placeholder="$0.00" readonly>
+          </div>
+        </div>
+
+        <div class="financial-form">
+          <h3>Monthly Expenses</h3>
+          <div class="form-group">
+            <label>Essential Expenses:</label>
+            <input type="number" placeholder="$0.00" required>
+          </div>
+          <div class="form-group">
+            <label>Debt Payments:</label>
+            <input type="number" placeholder="$0.00" required>
+          </div>
+          <div class="form-group">
+            <label>Disposable Income:</label>
+            <input type="number" placeholder="$0.00" readonly>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="debt-tracker">
+      <h2>Debt Management Tracker</h2>
+      <table class="debt-table">
+        <thead>
+          <tr>
+            <th>Creditor</th>
+            <th>Amount Owed</th>
+            <th>Interest Rate</th>
+            <th>Min. Payment</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td>
+              <select>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><input type="text"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td>
+              <select>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="recovery-plan">
+      <h2>Financial Recovery Action Plan</h2>
+      <div class="budget-calculator">
+        <h3>Monthly Budget Allocation</h3>
+        <div class="form-group">
+          <label>Emergency Fund Target:</label>
+          <input type="number" placeholder="Set your emergency fund goal">
+        </div>
+        <div class="form-group">
+          <label>Debt Repayment Allocation:</label>
+          <input type="number" placeholder="Monthly amount for debt repayment">
+        </div>
+        <div class="form-group">
+          <label>Savings Goal:</label>
+          <input type="number" placeholder="Monthly savings target">
+        </div>
+      </div>
+
+      <div class="progress-tracker">
+        <h3>Recovery Progress</h3>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <ul class="milestone-list">
+          <li>
+            <span>Emergency Fund Started</span>
+            <input type="checkbox">
+          </li>
+          <li>
+            <span>Debt Reduction Plan Implemented</span>
+            <input type="checkbox">
+          </li>
+          <li>
+            <span>Savings Goal Established</span>
+            <input type="checkbox">
+          </li>
+          <li>
+            <span>Budget System Created</span>
+            <input type="checkbox">
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="navigation">
+      <button type="button" class="nav-button secondary" onclick="window.location.href='https://responsabill.casino/workbook/section/understanding-addiction-patterns?pages=Pages%2011-20'">Previous Section</button>
+      <button type="button" class="nav-button" onclick="window.location.href='https://responsabill.casino/workbook/section/emotional-regulation-&-mindfulness?pages=Pages%2031-40'">Continue to Emotional Regulation</button>
+    </div>
+  </form>
+</div>
+
+<div class="watermark">
+  ResponsaBill.Casino Professional Workbook • Protected Content • User ID: 78249 • Session: 2024-01-20-15:35
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('financialRecoveryForm');
+  
+  // Auto-calculate totals
+  function calculateTotals() {
+    // Income calculations
+    const primaryIncome = parseFloat(form.querySelector('input[placeholder="Primary Income"]').value) || 0;
+    const additionalIncome = parseFloat(form.querySelector('input[placeholder="Additional Income"]').value) || 0;
+    const totalIncome = primaryIncome + additionalIncome;
+    form.querySelector('input[placeholder="Total Monthly Income"]').value = totalIncome.toFixed(2);
+
+    // Expenses calculations
+    const essentialExpenses = parseFloat(form.querySelector('input[placeholder="Essential Expenses"]').value) || 0;
+    const debtPayments = parseFloat(form.querySelector('input[placeholder="Debt Payments"]').value) || 0;
+    const disposableIncome = totalIncome - essentialExpenses - debtPayments;
+    form.querySelector('input[placeholder="Disposable Income"]').value = disposableIncome.toFixed(2);
+  }
+
+  // Add event listeners to all input fields
+  form.querySelectorAll('input[type="number"]').forEach(input => {
+    input.addEventListener('input', calculateTotals);
+  });
+
+  // Update progress bar based on checkboxes
+  const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+  const progressFill = document.getElementById('progressFill');
+
+  function updateProgress() {
+    const total = checkboxes.length;
+    const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+    const percentage = (checked / total) * 100;
+    progressFill.style.width = `${percentage}%`;
+  }
+
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', updateProgress);
+  });
+
+  // Auto-save functionality
+  let autoSaveTimeout;
+  form.addEventListener('input', () => {
+    clearTimeout(autoSaveTimeout);
+    autoSaveTimeout = setTimeout(() => {
+      console.log('Auto-saving financial data...');
+      // Implement auto-save functionality here
+    }, 1000);
+  });
+});
+</script>
+
+</body></html>
