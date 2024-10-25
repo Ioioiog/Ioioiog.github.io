@@ -1,0 +1,401 @@
+<html><head><base href="/community">
+<title>ResponsaBill - Recovery Community</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #6C63FF;
+  --secondary: #34495E;
+  --accent: #8A84FF;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --danger: #FF5252;
+  --light: #F5F6FA;
+  --dark: #2C3E50;
+  --text: #333333;
+  --background: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.navbar {
+  background: var(--background);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.community-container {
+  max-width: 1200px;
+  margin: 100px auto 0;
+  padding: 2rem;
+}
+
+.community-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.community-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.community-header p {
+  color: var(--secondary);
+  font-size: 1.1rem;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+}
+
+.sidebar {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.sidebar-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.group-list {
+  list-style: none;
+}
+
+.group-item {
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.group-item:hover {
+  background: var(--light);
+}
+
+.group-item.active {
+  background: var(--primary);
+  color: white;
+}
+
+.post-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.post-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.post-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.post-meta {
+  flex-grow: 1;
+}
+
+.post-author {
+  font-weight: 600;
+}
+
+.post-time {
+  font-size: 0.875rem;
+  color: var(--secondary);
+}
+
+.post-content {
+  margin-bottom: 1rem;
+}
+
+.post-actions {
+  display: flex;
+  gap: 1rem;
+  color: var(--secondary);
+  font-size: 0.875rem;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.action-button:hover {
+  color: var(--primary);
+}
+
+.new-post-button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: background 0.2s ease;
+}
+
+.new-post-button:hover {
+  background: var(--accent);
+}
+
+.activity-feed {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.activity-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--light);
+  font-size: 0.875rem;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 1200px) {
+  .community-grid {
+    grid-template-columns: 1fr 2fr;
+  }
+  
+  .activity-feed {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Handle group selection
+  const groupItems = document.querySelectorAll('.group-item');
+  groupItems.forEach(item => {
+    item.addEventListener('click', () => {
+      groupItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+
+  // Handle post interactions
+  const actionButtons = document.querySelectorAll('.action-button');
+  actionButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const action = button.getAttribute('data-action');
+      const count = button.querySelector('.action-count');
+      if (count) {
+        let currentCount = parseInt(count.textContent);
+        count.textContent = currentCount + 1;
+      }
+    });
+  });
+});
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-content">
+    <a href="/" class="logo">ResponsaBill</a>
+    <div class="nav-links">
+      <a href="/dashboard" class="nav-link">Dashboard</a>
+      <a href="/ai-support" class="nav-link">AI Chat Support</a>
+      <a href="/recovery-path" class="nav-link">Recovery Path</a>
+      <a href="/community" class="nav-link">Community</a>
+      <a href="/profile" class="nav-link">Profile</a>
+    </div>
+  </div>
+</nav>
+
+<div class="community-container">
+  <div class="community-header">
+    <h1>Recovery Community</h1>
+    <p>Connect, share, and support each other on the journey to recovery</p>
+  </div>
+
+  <div class="community-grid">
+    <div class="sidebar">
+      <h2 class="sidebar-title">Support Groups</h2>
+      <ul class="group-list">
+        <li class="group-item active">General Discussion</li>
+        <li class="group-item">Newcomers Welcome</li>
+        <li class="group-item">Success Stories</li>
+        <li class="group-item">Daily Check-in</li>
+        <li class="group-item">Family Support</li>
+        <li class="group-item">Recovery Tools</li>
+      </ul>
+    </div>
+
+    <div class="post-feed">
+      <button class="new-post-button">Share Your Story</button>
+
+      <div class="post-card">
+        <div class="post-header">
+          <div class="post-avatar">🌟</div>
+          <div class="post-meta">
+            <div class="post-author">Anonymous Hero</div>
+            <div class="post-time">2 hours ago</div>
+          </div>
+        </div>
+        <div class="post-content">
+          <p>Today marks my 30th day of recovery! It hasn't been easy, but the support from this community has been incredible. Taking it one day at a time. 💪</p>
+        </div>
+        <div class="post-actions">
+          <div class="action-button" data-action="support">
+            <span>🌟</span>
+            <span>Support</span>
+            <span class="action-count">42</span>
+          </div>
+          <div class="action-button" data-action="comment">
+            <span>💭</span>
+            <span>Comment</span>
+            <span class="action-count">12</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-header">
+          <div class="post-avatar">🌱</div>
+          <div class="post-meta">
+            <div class="post-author">NewBeginning</div>
+            <div class="post-time">5 hours ago</div>
+          </div>
+        </div>
+        <div class="post-content">
+          <p>Had a tough day yesterday but managed to resist the urge. The breathing exercises really helped. Thank you everyone for the tips shared in the last meeting.</p>
+        </div>
+        <div class="post-actions">
+          <div class="action-button" data-action="support">
+            <span>🌟</span>
+            <span>Support</span>
+            <span class="action-count">28</span>
+          </div>
+          <div class="action-button" data-action="comment">
+            <span>💭</span>
+            <span>Comment</span>
+            <span class="action-count">8</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-feed">
+      <h2 class="sidebar-title">Recent Activity</h2>
+      <div class="activity-item">
+        <p>🎉 John reached 60 days milestone</p>
+        <small>10 minutes ago</small>
+      </div>
+      <div class="activity-item">
+        <p>📅 New support meeting tomorrow at 7 PM</p>
+        <small>1 hour ago</small>
+      </div>
+      <div class="activity-item">
+        <p>💪 Sarah shared a new recovery tip</p>
+        <small>2 hours ago</small>
+      </div>
+      <div class="activity-item">
+        <p>🌟 5 members completed daily check-in</p>
+        <small>3 hours ago</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body></html>
