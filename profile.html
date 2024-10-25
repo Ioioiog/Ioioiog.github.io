@@ -1,0 +1,446 @@
+<html><head><base href="https://responsabill.casino/profile">
+<title>ResponsaBill - Profile Settings</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #6C63FF;
+  --secondary: #34495E;
+  --accent: #8A84FF;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --danger: #FF5252;
+  --light: #F5F6FA;
+  --dark: #2C3E50;
+  --text: #333333;
+  --background: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --gradient: linear-gradient(135deg, #6C63FF 0%, #8A84FF 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.navbar {
+  background: var(--background);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.main-container {
+  max-width: 1400px;
+  margin: 80px auto 0;
+  padding: 2rem;
+}
+
+.profile-header {
+  background: var(--gradient);
+  color: white;
+  padding: 3rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+}
+
+.profile-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+}
+
+.profile-sidebar {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  height: fit-content;
+}
+
+.profile-menu {
+  list-style: none;
+}
+
+.profile-menu-item {
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.profile-menu-item:hover {
+  background: var(--light);
+}
+
+.profile-menu-item.active {
+  background: var(--primary);
+  color: white;
+}
+
+.settings-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--primary);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: white;
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: var(--light);
+  color: var(--text);
+}
+
+.progress-section {
+  margin-top: 1rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background: var(--light);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gradient);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .profile-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .main-container {
+    padding: 1rem;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Handle menu item clicks
+  const menuItems = document.querySelectorAll('.profile-menu-item');
+  const settingsCards = document.querySelectorAll('.settings-card');
+  
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remove active class from all items
+      menuItems.forEach(i => i.classList.remove('active'));
+      // Add active class to clicked item
+      item.classList.add('active');
+      
+      // Show corresponding settings card
+      const target = item.getAttribute('data-target');
+      settingsCards.forEach(card => {
+        card.style.display = card.id === target ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Handle form submission
+  const saveButton = document.querySelector('#save-changes');
+  saveButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Show success message
+    const message = document.createElement('div');
+    message.textContent = 'Changes saved successfully!';
+    message.style.color = 'var(--success)';
+    message.style.marginTop = '1rem';
+    saveButton.parentNode.appendChild(message);
+    
+    setTimeout(() => {
+      message.remove();
+    }, 3000);
+  });
+
+  // Handle notification preferences
+  const toggles = document.querySelectorAll('.notification-toggle');
+  toggles.forEach(toggle => {
+    toggle.addEventListener('change', () => {
+      // Save preference to local storage
+      localStorage.setItem(toggle.id, toggle.checked);
+    });
+  });
+});
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-content">
+    <a href="/" class="logo">ResponsaBill</a>
+    <div class="nav-links">
+      <a href="/dashboard" class="nav-link">Dashboard</a>
+      <a href="/ai-support" class="nav-link">AI Chat Support</a>
+      <a href="/recovery-path" class="nav-link">Recovery Path</a>
+      <a href="/community" class="nav-link">Community</a>
+      <a href="/profile" class="nav-link">Profile</a>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <section class="profile-header">
+    <h1>Profile Settings</h1>
+    <p>Manage your account preferences and recovery journey settings</p>
+  </section>
+
+  <div class="profile-content">
+    <div class="profile-sidebar">
+      <ul class="profile-menu">
+        <li class="profile-menu-item active" data-target="account-settings">Account Settings</li>
+        <li class="profile-menu-item" data-target="notification-settings">Notifications</li>
+        <li class="profile-menu-item" data-target="privacy-settings">Privacy & Security</li>
+        <li class="profile-menu-item" data-target="recovery-settings">Recovery Settings</li>
+      </ul>
+    </div>
+
+    <div class="settings-content">
+      <div id="account-settings" class="settings-card">
+        <h2>Account Settings</h2>
+        <form>
+          <div class="form-group">
+            <label class="form-label">Display Name</label>
+            <input type="text" class="form-input" value="User_2024" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" value="user@example.com" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Time Zone</label>
+            <select class="form-input">
+              <option>Eastern Time (ET)</option>
+              <option>Pacific Time (PT)</option>
+              <option>Central Time (CT)</option>
+              <option>Mountain Time (MT)</option>
+            </select>
+          </div>
+          <button id="save-changes" class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+
+      <div id="notification-settings" class="settings-card" style="display: none;">
+        <h2>Notification Preferences</h2>
+        <div class="form-group">
+          <label class="form-label">Daily Check-in Reminders</label>
+          <label class="toggle-switch">
+            <input type="checkbox" class="notification-toggle" id="daily-checkin" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Community Updates</label>
+          <label class="toggle-switch">
+            <input type="checkbox" class="notification-toggle" id="community-updates" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Achievement Alerts</label>
+          <label class="toggle-switch">
+            <input type="checkbox" class="notification-toggle" id="achievement-alerts" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div id="privacy-settings" class="settings-card" style="display: none;">
+        <h2>Privacy & Security</h2>
+        <div class="form-group">
+          <label class="form-label">Profile Visibility</label>
+          <select class="form-input">
+            <option>Private</option>
+            <option>Friends Only</option>
+            <option>Public</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Two-Factor Authentication</label>
+          <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <button class="btn btn-primary">Update Security Settings</button>
+      </div>
+
+      <div id="recovery-settings" class="settings-card" style="display: none;">
+        <h2>Recovery Journey Settings</h2>
+        <div class="form-group">
+          <label class="form-label">Program Intensity</label>
+          <select class="form-input">
+            <option>Standard (30 min/day)</option>
+            <option>Intensive (60 min/day)</option>
+            <option>Light (15 min/day)</option>
+          </select>
+        </div>
+        <div class="progress-section">
+          <h3>Current Progress</h3>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 65%"></div>
+          </div>
+          <span class="badge">Phase 2 of 4</span>
+        </div>
+        <button class="btn btn-primary" style="margin-top: 1rem;">Update Recovery Settings</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body></html>
