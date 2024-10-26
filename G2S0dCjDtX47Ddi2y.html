@@ -1,0 +1,379 @@
+<html><head><base href="https://responsabill.casino/register">
+<title>Register | ResponsaBill - Responsible Gaming Assistant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css" rel="stylesheet">
+<style>
+:root {
+  --primary: #6200EA;
+  --primary-light: #9D46FF;
+  --primary-dark: #4A00B0;
+  --secondary: #30E3CA;
+  --warning: #FFB347;
+  --error: #FF6B6B;
+  --success: #4CAF50;
+  --surface: #FFFFFF;
+  --background: #F8F9FE;
+  --text: #2C3E50;
+  --text-light: #718096;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.register-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.register-form {
+  background: white;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #E2E8F0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.1);
+}
+
+.register-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.features-list {
+  list-style: none;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.feature-icon {
+  background: var(--primary-light);
+  color: white;
+  padding: 0.75rem;
+  border-radius: 12px;
+  font-size: 1.5rem;
+}
+
+.form-footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.form-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.step-number {
+  width: 32px;
+  height: 32px;
+  background: white;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.step-label {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+.progress-line {
+  position: absolute;
+  top: 16px;
+  left: 50px;
+  right: 50px;
+  height: 2px;
+  background: #E2E8F0;
+  z-index: 0;
+}
+
+.progress-line-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--primary);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .register-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .register-form {
+    padding: 2rem;
+  }
+}
+</style>
+</head><body>
+
+<header class="header">
+  <a href="/" class="logo">
+    <i class="mdi mdi-shield-check"></i>
+    ResponsaBill
+  </a>
+</header>
+
+<main class="register-container">
+  <div class="register-info">
+    <h1 style="font-size: 2.5rem; margin-bottom: 2rem;">Join ResponsaBill</h1>
+    <p style="color: var(--text-light); margin-bottom: 3rem;">Take control of your gaming journey with our comprehensive tools and support system.</p>
+    
+    <ul class="features-list">
+      <li class="feature-item">
+        <span class="feature-icon">
+          <i class="mdi mdi-chart-timeline-variant"></i>
+        </span>
+        <div>
+          <h3>Smart Tracking</h3>
+          <p>Monitor your gaming activity and spending patterns with intelligent analytics.</p>
+        </div>
+      </li>
+      
+      <li class="feature-item">
+        <span class="feature-icon">
+          <i class="mdi mdi-bell-ring"></i>
+        </span>
+        <div>
+          <h3>Custom Alerts</h3>
+          <p>Set personalized limits and receive notifications to stay within your boundaries.</p>
+        </div>
+      </li>
+      
+      <li class="feature-item">
+        <span class="feature-icon">
+          <i class="mdi mdi-account-group"></i>
+        </span>
+        <div>
+          <h3>Community Support</h3>
+          <p>Connect with others and access professional guidance when needed.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="register-form">
+    <div class="progress-steps">
+      <div class="progress-line">
+        <div class="progress-line-fill"></div>
+      </div>
+      <div class="progress-step">
+        <div class="step-number">1</div>
+        <div class="step-label">Account</div>
+      </div>
+      <div class="progress-step">
+        <div class="step-number">2</div>
+        <div class="step-label">Profile</div>
+      </div>
+      <div class="progress-step">
+        <div class="step-number">3</div>
+        <div class="step-label">Preferences</div>
+      </div>
+    </div>
+
+    <form id="registerForm">
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-input" placeholder="Enter your full name" required>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="Enter your email" required>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-input" placeholder="Create a strong password" required>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" class="form-input" placeholder="Confirm your password" required>
+      </div>
+      
+      <button type="submit" class="register-btn">Continue</button>
+      
+      <div class="form-footer">
+        Already have an account? <a href="/login">Log in</a>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script>
+const form = document.getElementById('registerForm');
+const progressFill = document.querySelector('.progress-line-fill');
+let currentStep = 1;
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  if (currentStep < 3) {
+    currentStep++;
+    updateProgress();
+  } else {
+    // Submit form
+    alert('Registration successful!');
+    window.location.href = '/dashboard';
+  }
+});
+
+function updateProgress() {
+  const progress = ((currentStep - 1) / 2) * 100;
+  progressFill.style.width = `${progress}%`;
+  
+  // Update form fields based on step
+  const formGroups = document.querySelectorAll('.form-group');
+  formGroups.forEach(group => group.style.display = 'none');
+  
+  switch(currentStep) {
+    case 1:
+      // Show account fields
+      formGroups[0].style.display = 'block';
+      formGroups[1].style.display = 'block';
+      formGroups[2].style.display = 'block';
+      formGroups[3].style.display = 'block';
+      break;
+    case 2:
+      // Show profile fields
+      formGroups[0].style.display = 'block';
+      formGroups[1].style.display = 'block';
+      document.querySelector('.register-btn').textContent = 'Next';
+      break;
+    case 3:
+      // Show preferences fields
+      formGroups[0].style.display = 'block';
+      document.querySelector('.register-btn').textContent = 'Complete Registration';
+      break;
+  }
+}
+
+// Add password strength indicator
+const passwordInput = document.querySelectorAll('input[type="password"]')[0];
+passwordInput.addEventListener('input', (e) => {
+  const password = e.target.value;
+  const strength = calculatePasswordStrength(password);
+  updatePasswordStrengthUI(strength);
+});
+
+function calculatePasswordStrength(password) {
+  let strength = 0;
+  if (password.length >= 8) strength++;
+  if (password.match(/[A-Z]/)) strength++;
+  if (password.match(/[0-9]/)) strength++;
+  if (password.match(/[^A-Za-z0-9]/)) strength++;
+  return strength;
+}
+
+function updatePasswordStrengthUI(strength) {
+  const colors = ['#FF6B6B', '#FFB347', '#4CAF50'];
+  const input = passwordInput;
+  input.style.borderColor = colors[Math.min(strength - 1, 2)];
+}
+</script>
+
+</body></html>

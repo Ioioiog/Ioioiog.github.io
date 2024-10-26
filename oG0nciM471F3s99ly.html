@@ -1,0 +1,375 @@
+<html><head><base href="https://responsabill.casino/resources">
+<title>ResponsaBill Resources | Responsible Gaming Tools & Information</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css" rel="stylesheet">
+<style>
+:root {
+  --primary: #6200EA;
+  --primary-light: #9D46FF;
+  --primary-dark: #4A00B0;
+  --secondary: #30E3CA;
+  --warning: #FFB347;
+  --error: #FF6B6B;
+  --success: #4CAF50;
+  --surface: #FFFFFF;
+  --background: #F8F9FE;
+  --text: #2C3E50;
+  --text-light: #718096;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.resources-hero {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.resources-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.resource-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.resource-icon {
+  background: var(--primary-light);
+  color: white;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.resource-search {
+  margin: 2rem auto;
+  max-width: 600px;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 1rem;
+}
+
+.search-input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.7);
+}
+
+.category-tabs {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.category-tab {
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.category-tab.active {
+  background: var(--primary);
+  color: white;
+}
+
+.resource-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.resource-link:hover {
+  color: var(--primary-dark);
+  transform: translateX(5px);
+}
+
+.emergency-banner {
+  background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+  color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.emergency-banner h2 {
+  margin-bottom: 1rem;
+}
+
+.emergency-button {
+  display: inline-block;
+  background: white;
+  color: #FF6B6B;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.emergency-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .resources-container {
+    padding: 2rem 1rem;
+  }
+  
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head><body>
+
+<header class="header">
+  <a href="/" class="logo">
+    <i class="mdi mdi-shield-check"></i>
+    ResponsaBill
+  </a>
+  
+  <nav class="nav-links">
+    <a href="/about" class="nav-link">About</a>
+    <a href="/resources" class="nav-link">Resources</a>
+    <a href="/contact" class="nav-link">Contact</a>
+    <a href="/register" class="nav-link cta">Get Started</a>
+  </nav>
+</header>
+
+<main>
+  <section class="resources-hero">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem;">Resources & Support</h1>
+    <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; opacity: 0.9">
+      Access tools, information, and support to maintain healthy gaming habits.
+    </p>
+    
+    <div class="resource-search">
+      <i class="mdi mdi-magnify search-icon"></i>
+      <input type="text" class="search-input" placeholder="Search resources...">
+    </div>
+  </section>
+
+  <div class="resources-container">
+    <div class="category-tabs">
+      <div class="category-tab active">All Resources</div>
+      <div class="category-tab">Self-Assessment Tools</div>
+      <div class="category-tab">Educational Materials</div>
+      <div class="category-tab">Support Groups</div>
+      <div class="category-tab">Professional Help</div>
+    </div>
+
+    <div class="resources-grid">
+      <div class="resource-card">
+        <div class="resource-icon">
+          <i class="mdi mdi-clipboard-check"></i>
+        </div>
+        <h3>Self-Assessment Quiz</h3>
+        <p>Evaluate your gaming habits with our comprehensive self-assessment tool.</p>
+        <a href="/assessment" class="resource-link">Take Assessment <i class="mdi mdi-arrow-right"></i></a>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-icon">
+          <i class="mdi mdi-book-open-variant"></i>
+        </div>
+        <h3>Educational Resources</h3>
+        <p>Learn about responsible gaming practices and strategies for maintaining control.</p>
+        <a href="/education" class="resource-link">Learn More <i class="mdi mdi-arrow-right"></i></a>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-icon">
+          <i class="mdi mdi-account-group"></i>
+        </div>
+        <h3>Support Groups</h3>
+        <p>Connect with others and share experiences in a supportive environment.</p>
+        <a href="/groups" class="resource-link">Find Groups <i class="mdi mdi-arrow-right"></i></a>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-icon">
+          <i class="mdi mdi-chart-timeline"></i>
+        </div>
+        <h3>Tracking Tools</h3>
+        <p>Monitor your gaming activity and set personal limits with our tracking tools.</p>
+        <a href="/tools" class="resource-link">Access Tools <i class="mdi mdi-arrow-right"></i></a>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-icon">
+          <i class="mdi mdi-professional-hexagon"></i>
+        </div>
+        <h3>Professional Support</h3>
+        <p>Connect with licensed professionals specializing in gaming behavior.</p>
+        <a href="/professional-help" class="resource-link">Get Help <i class="mdi mdi-arrow-right"></i></a>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-icon">
+          <i class="mdi mdi-family-tree"></i>
+        </div>
+        <h3>Family Resources</h3>
+        <p>Resources and guidance for family members of those affected by gaming.</p>
+        <a href="/family" class="resource-link">Support Family <i class="mdi mdi-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="emergency-banner">
+      <h2>Need Immediate Support?</h2>
+      <p>Our crisis helpline is available 24/7 for emergency situations.</p>
+      <a href="tel:1-800-RECOVERY" class="emergency-button">
+        <i class="mdi mdi-phone"></i> Call 1-800-RECOVERY
+      </a>
+    </div>
+  </div>
+</main>
+
+<script>
+// Add click handlers for category tabs
+document.querySelectorAll('.category-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelector('.category-tab.active').classList.remove('active');
+    tab.classList.add('active');
+    
+    // Animate resources grid
+    const grid = document.querySelector('.resources-grid');
+    grid.style.opacity = '0';
+    setTimeout(() => {
+      grid.style.opacity = '1';
+    }, 300);
+  });
+});
+
+// Add search functionality
+const searchInput = document.querySelector('.search-input');
+searchInput.addEventListener('input', (e) => {
+  const searchTerm = e.target.value.toLowerCase();
+  const cards = document.querySelectorAll('.resource-card');
+  
+  cards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    if (text.includes(searchTerm)) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+});
+
+// Add hover animation for resource cards
+document.querySelectorAll('.resource-card').forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.style.transform = 'translateY(-5px)';
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'translateY(0)';
+  });
+});
+</script>
+
+</body></html>
